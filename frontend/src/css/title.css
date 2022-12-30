@@ -1,0 +1,15 @@
+.title {
+    height: 10em;
+    padding: 1em;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.titleContainer {
+    background-image: url(./pa圖片.png);
+    opacity: 0.85;
+}
+a:link {
+    text-decoration: none;
+}

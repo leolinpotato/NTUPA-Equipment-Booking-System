@@ -6,7 +6,7 @@ import { useNavigate } from 'react-router-dom';
 
 const SideBar = () => {
 	return (
-		<div classname = 'sideBarContainer'>
+		<div className = 'sideBarContainer'>
 		</div>
 	)
 }
