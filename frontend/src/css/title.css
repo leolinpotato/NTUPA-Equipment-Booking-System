@@ -1,5 +1,5 @@
 .title {
-    height: 10em;
+    height: 8em;
     padding: 1em;
     color: white;
     display: flex;
@@ -7,7 +7,7 @@
     align-items: center;
 }
 .titleContainer {
-    background-image: url(./pa圖片.png);
+    background-image: url(./pa_picture.png);
     opacity: 0.85;
 }
 a:link {
