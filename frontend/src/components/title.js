@@ -6,7 +6,7 @@ const Title = () => {
 		<div classname = 'titleContainer'>
 			<a href="/">
                 <div className='title'>
-                    <h1>PA器材系統</h1>
+                    <h1>PA equipments-booking-system</h1>
                 </div>
             </a>
 		</div>
