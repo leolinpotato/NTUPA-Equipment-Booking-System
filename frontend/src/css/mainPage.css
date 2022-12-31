@@ -1,0 +1,16 @@
+.mainPageContainer {
+	position: absolute;
+	left: 17em;
+	width: calc(100% - 17em);
+	height: calc(100% - 10em);
+	display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.mainPage {
+	display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.8em;
+}
