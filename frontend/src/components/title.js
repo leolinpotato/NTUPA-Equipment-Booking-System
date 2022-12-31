@@ -1,12 +1,12 @@
 import React from 'react';
-//import '../css/title.css';
+import '../css/title.css';
 
 const Title = () => {
 	return (
-		<div classname = 'titleContainer'>
+		<div className = 'titleContainer'>
 			<a href="/">
                 <div className='title'>
-                    <h1>PA equipments-booking-system</h1>
+                    <h1>PA Equipment Booking System</h1>
                 </div>
             </a>
 		</div>

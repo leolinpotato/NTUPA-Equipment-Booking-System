@@ -1,0 +1,15 @@
+.title {
+    height: 8em;
+    padding: 1em;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.titleContainer {
+    background-image: url(./pa_picture.png);
+    opacity: 0.85;
+}
+a:link {
+    text-decoration: none;
+}
