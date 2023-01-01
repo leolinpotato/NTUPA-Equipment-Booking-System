@@ -1,5 +1,6 @@
 .container {
-  height: calc(100% - 10em);
   position: absolute;
-  margin-left: 17em;
+  left: 17em;
+  width: calc(100% - 17em);
+  height: calc(100% - 10em);
 }

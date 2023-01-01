@@ -12,5 +12,8 @@
 	display: flex;
     justify-content: center;
     align-items: center;
-
+}
+.sideBarRow:hover {
+	color: white;
+	background: rgb(157, 132, 112);
 }

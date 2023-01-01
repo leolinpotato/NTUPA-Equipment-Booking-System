@@ -1,5 +1,6 @@
 import React from 'react'
 import { useNavigate } from 'react-router-dom';
+import '../css/borrowReturnPage.css'
 
 const BorrowReturnPage = () => {
 
@@ -15,8 +16,8 @@ const BorrowReturnPage = () => {
 
     return (
         <div className='borrowReturnPageContainer'>
-            <button onClick={navigateToBorrow}>Borrow</button>
-            <button onClick={navigateToReturn}>Return</button>
+            <button onClick={navigateToBorrow} id='borrowButton'>Borrow</button>
+            <button onClick={navigateToReturn} id='returnButton'>Return</button>
         </div>
     )
 }

@@ -1,10 +1,10 @@
 import React from 'react'
-//import '../css/mainPage.css'
+import '../css/returnPage.css'
 
 const ReturnPage = () => {
     return (
-        <div className='ReturnPageContainer'>
-            <h2>What do you want to Return?</h2>
+        <div className='returnPageContainer'>
+            <h2 className='returnPage'>What do you want to Return?</h2>
         </div>
     )
 }
