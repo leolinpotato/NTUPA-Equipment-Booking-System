@@ -12,8 +12,8 @@ const SideBar = () => {
 		    {
 		    	items.map((item, index) => {
 		    		return (
-		    			<a href={`/${item}`}>
-		    				<div className='sideBarRow' id={`row_${index}`} key={`row_${index}`}> {item} </div>
+		    			<a href={`/${item}`} id={`row_${index}`} key={`row_${index}`}>
+		    				<div className='sideBarRow'> {item} </div>
 		    			</a>
 		    		)
 		    	})
