@@ -1,6 +1,8 @@
 import React from 'react'
 import { useNavigate } from 'react-router-dom';
 import '../css/borrowReturnPage.css'
+import { Button } from 'antd';
+import { ExportOutlined, RedoOutlined } from '@ant-design/icons';
 
 const BorrowReturnPage = () => {
 
@@ -16,8 +18,14 @@ const BorrowReturnPage = () => {
 
     return (
         <div className='borrowReturnPageContainer'>
-            <button onClick={navigateToBorrow} id='borrowButton'>Borrow</button>
-            <button onClick={navigateToReturn} id='returnButton'>Return</button>
+            <button onClick={navigateToBorrow} id='borrowButton'>
+                <ExportOutlined />
+                Borrow
+            </button>
+            <button onClick={navigateToReturn} id='returnButton'>
+                <RedoOutlined />
+                Return
+            </button>
         </div>
     )
 }

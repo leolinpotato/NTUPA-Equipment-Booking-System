@@ -9,17 +9,17 @@
 #borrowButton {
     color: white;
     background: black;
-    width: 100px;
-    height: 100px;
-    border-radius: 30%;
-    border: none;
+    
 }
 
 #returnButton {
     color: white;
     background: black;
-    width: 100px;
-    height:100px;
-    border-radius: 30%;
+}
+
+button {
+    width: 30%;
+    height: 50%;
+    border-radius: 10%;
     border: none;
 }

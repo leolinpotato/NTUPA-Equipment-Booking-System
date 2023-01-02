@@ -6,7 +6,10 @@
   "author": "羅煜翔 <yuxiang@yuxiang.local>",
   "license": "MIT",
   "scripts": {
-      "start": "cd frontend && yarn start",
-      "server": "cd backend && yarn server"
+    "start": "cd frontend && yarn start",
+    "server": "cd backend && yarn server"
+  },
+  "dependencies": {
+    "antd": "^5.1.2"
   }
 }
