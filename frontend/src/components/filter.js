@@ -1,7 +1,8 @@
 import React from 'react';
 import { useState } from 'react';
 import axios from '../api';
-import { Input, Select, Col, Row } from 'antd';
+import { Input, Select, Col, Row, Button } from 'antd';
+import { SearchOutlined } from '@ant-design/icons';
 import '../css/filter.css'
 
 const Filter = (type) => {
@@ -40,8 +41,13 @@ const Filter = (type) => {
 
     return (
         <div className='filterContainer'>
+<<<<<<< HEAD
                 <Row className='filterRow'>
                     <Col span={4}>
+=======
+                <Row>
+                    <Col>
+>>>>>>> 52f3dbcefa875ed892bef2a2dd8346072f7dd523
                     <Select
                       defaultValue="Mixer"
                       size="large"
@@ -73,7 +79,7 @@ const Filter = (type) => {
                       ]}
                     />
                     </Col>
-                    <Col span={5}>
+                    <Col>
                 <Select
                     showSearch
                     size="large"
@@ -114,6 +120,7 @@ const Filter = (type) => {
                     ]}
                   />
                   </Col>
+<<<<<<< HEAD
                   <Col span={4}>
                 <Input placeholder="Name" onChange={handleChange(setName)}></Input>
                 </Col>
@@ -124,9 +131,43 @@ const Filter = (type) => {
                 <button onClick={send} id='send'>   send   </button> 
                 <button onClick={search} id='search'> search </button> 
             </div>
+=======
+                  <Col>
+                <Input placeholder="Name" onChange={handleChange(setName)}></Input>
+                </Col>
+                <Col>
+                <Input placeholder="Activity" onChange={handleChange(setAct)}></Input>
+                </Col>
+                <Col>
+                <Button type="primary" onClick={send}>   send   </Button>
+                </Col>
+                <Col> 
+                <Button type="primary" icon={<SearchOutlined />} onClick={search}> Search </Button> 
+                </Col>
+>>>>>>> 52f3dbcefa875ed892bef2a2dd8346072f7dd523
             </Row>
-            <h2>Equipments list</h2> { Data.map((element, id) => (
-                <p>{element.Name} {element.Equipment} {element.EquipNum} {element.Activity} {element.date}</p>
+            { Data.map((item) => (
+                <>
+                  <div className='resBlock' id={item.id} key={item.id} onClick={() => {EquipmentPage(item.id)}}>
+                    <div className='resImgContainer'>
+                      <img className='resImg' src={item.img}/>
+                    </div>
+                    <div className='resInfo'>
+                      <div className='title'>
+                        <p className='name'>{item.name}</p>
+                        <p className='price'>{getPrice(item.price)}</p>
+                        <p className='distance'>{item.distance / 1000} km</p>
+                      </div>
+                      <p className='description'>{item.tag.map((description, i) => {
+                        if (i !== 0)
+                            return `, ${description}`;
+                        else
+                            return `${description}`;
+                      })}
+                      </p>
+                    </div>
+                  </div>
+                </>
             ))}
             
         </div>
