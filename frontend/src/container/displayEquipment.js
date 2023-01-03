@@ -1,10 +1,14 @@
-import React from 'react'
+import React from 'react';
+import { useState } from 'react';
+import axios from '../api';
+import { Input, Select } from 'antd';
+import Filter from '../components/filter.js'
 //import '../css/mainPage.css'
 
-const DisplayEquipment = ({type}) => {
+const DisplayEquipment = (type) => {
     return (
         <div className='displayEquipmentContainer'>
-            <h2>Equipments list</h2>
+            <Filter type={type}/>
         </div>
     )
 }
