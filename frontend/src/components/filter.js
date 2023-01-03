@@ -40,7 +40,7 @@ const Filter = (type) => {
 
     return (
         <div className='filterContainer'>
-                <Row>
+                <Row className='filterRow'>
                     <Col span={4}>
                     <Select
                       defaultValue="Mixer"
@@ -114,15 +114,15 @@ const Filter = (type) => {
                     ]}
                   />
                   </Col>
-                  <Col span={5}>
+                  <Col span={4}>
                 <Input placeholder="Name" onChange={handleChange(setName)}></Input>
                 </Col>
-                <Col span={5}>
+                <Col span={4}>
                 <Input placeholder="Activity" onChange={handleChange(setAct)}></Input>
                 </Col>
-            <div>
-                <button onClick={send}>   send   </button> 
-                <button onClick={search}> search </button> 
+            <div className='button'>
+                <button onClick={send} id='send'>   send   </button> 
+                <button onClick={search} id='search'> search </button> 
             </div>
             </Row>
             <h2>Equipments list</h2> { Data.map((element, id) => (

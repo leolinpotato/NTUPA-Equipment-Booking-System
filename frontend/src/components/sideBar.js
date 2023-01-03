@@ -27,9 +27,9 @@ const SideBar = () => {
 	return (
 		<div className='sideBarContainer'>
 		    <Dropdown menu={{items,}} className='sideBarRow'>
-		        <a onClick={(e) => e.preventDefault()}>
+		        <a onClick={(e) => e.preventDefault()} >
 		            Borrow/Return
-		            <DownOutlined />
+		            <DownOutlined/>
 		        </a>
 		      </Dropdown>
 		    {

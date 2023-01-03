@@ -22,7 +22,7 @@ const BorrowPage = () => {
 
 
     return (
-        <>
+      <>
         {display ?
             <DisplayEquipment type='borrow'/>
             :
@@ -92,7 +92,7 @@ const BorrowPage = () => {
                   </Form.Item>
             </Form>
         }
-        </>
+      </>
     )
 }
 export default BorrowPage
