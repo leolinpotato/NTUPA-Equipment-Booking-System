@@ -41,13 +41,8 @@ const Filter = (type) => {
 
     return (
         <div className='filterContainer'>
-<<<<<<< HEAD
                 <Row className='filterRow'>
                     <Col span={4}>
-=======
-                <Row>
-                    <Col>
->>>>>>> 52f3dbcefa875ed892bef2a2dd8346072f7dd523
                     <Select
                       defaultValue="Mixer"
                       size="large"
@@ -120,18 +115,6 @@ const Filter = (type) => {
                     ]}
                   />
                   </Col>
-<<<<<<< HEAD
-                  <Col span={4}>
-                <Input placeholder="Name" onChange={handleChange(setName)}></Input>
-                </Col>
-                <Col span={4}>
-                <Input placeholder="Activity" onChange={handleChange(setAct)}></Input>
-                </Col>
-            <div className='button'>
-                <button onClick={send} id='send'>   send   </button> 
-                <button onClick={search} id='search'> search </button> 
-            </div>
-=======
                   <Col>
                 <Input placeholder="Name" onChange={handleChange(setName)}></Input>
                 </Col>
@@ -144,7 +127,6 @@ const Filter = (type) => {
                 <Col> 
                 <Button type="primary" icon={<SearchOutlined />} onClick={search}> Search </Button> 
                 </Col>
->>>>>>> 52f3dbcefa875ed892bef2a2dd8346072f7dd523
             </Row>
             { Data.map((item) => (
                 <>

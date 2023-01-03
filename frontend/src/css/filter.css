@@ -4,30 +4,3 @@
     justify-content: space-around;
     align-items: center;
 }
-.button {
-    width: 20%;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-}
-
-#send {
-    width: 30%;
-    color: white;
-    background: rgb(184, 160, 131);
-    border-radius: 5px;
-
-}
-#send:hover {
-    background: rgb(157, 132, 112);
-}
-
-#search {
-    width: 30%;
-    color: white;
-    background: rgb(184, 160, 131);
-    border-radius: 5px;
-}
-#search:hover {
-    background: rgb(157, 132, 112);
-}
