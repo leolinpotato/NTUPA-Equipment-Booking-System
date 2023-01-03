@@ -7,7 +7,8 @@ const RequestSchema = new Schema({
 	Name: String,
 	Activity: String,
 	Equipment: String,
-	EquipNum: Number
+	EquipNum: Number,
+	attr: String
 })
 
 const Request = mongoose.model('Request', RequestSchema);

@@ -9,6 +9,7 @@ const EquipmentListPage = () => {
 	const [ EquipNum, setNum ] = useState(0);
 	const [ Activity, setAct ] = useState('');
 	const [ Display, setDisplay ] = useState([]);
+	const [ attr, setAttr ] = useState('');
 
 	const handleChange = (st) => (e) => {
 		st(e.target.value);
@@ -23,6 +24,7 @@ const EquipmentListPage = () => {
 				EquipNum,
 				Activity
 			});
+			alert('success');
 		}
 	}
 
@@ -37,15 +39,27 @@ const EquipmentListPage = () => {
 		setDisplay(data);
 	}
 
+	const newAttr = async () => {
+		if(Equipment && attr){
+			const { data: { message }} = await axios.post('/attr', {
+				equip: Equipment,
+				attr
+			})
+			alert('new attr');
+		}
+	}
+
     return (
         <div className='equipmentListPageContainer'>
 			<input placeholder="name"  onChange={handleChange(setName)}></input>
 			<input placeholder="equip" onChange={handleChange(setEquip)}></input>
 			<input placeholder="num"   onChange={handleChange(setNum)}></input>
 			<input placeholder="act"   onChange={handleChange(setAct)}></input>
+			<input placeholder="attr"   onChange={handleChange(setAttr)}></input>
 			<div>
 				<button onClick={send}>   send   </button> 
 				<button onClick={search}> search </button> 
+				<button onClick={newAttr}>   attr   </button> 
 			</div>
             <h2>Equipments list</h2> { Display.map((element, id) => (
 				<p>{element.Name} {element.Equipment} {element.EquipNum} {element.Activity} {element.date}</p>
