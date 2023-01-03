@@ -3,11 +3,10 @@ import Request from '../models/Schema'
 const router = Router();
 
 router.get('/reqHandle', async (req, res) => {
-	console.log(req.body);
-	const dt = await Request.find(req.body);
+	const dt = await Request.find(req.query);
 	const ret = []
 	for(let i of dt){
-		ret.push({name:i.Name, equipment:i.Equipment, date:i.date, equipNum:i.EquipNum, Activity:i.Activity});
+		ret.push({Name:i.Name, Equipment:i.Equipment, date:i.date, EquipNum:i.EquipNum, Activity:i.Activity});
 	}
 	res.json(ret);
 })
@@ -22,10 +21,12 @@ router.post('/reqHandle', async (req, res) => {
 	const date = new Date().toLocaleString();
 	const newdt = new Request({date, Name, Activity, EquipNum, Equipment});
 	await newdt.save();
+	res.json({message: "succeed!"});
 })
 
-//router.delete('/debug', async (req, res) => {
-//    await Request.deleteMany({});
-//})
+router.delete('/debug', async (req, res) => {
+	await Request.deleteMany({});
+	res.json({message: "succeed!"});
+})
 
 export default router;
