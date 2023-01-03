@@ -1,7 +1,8 @@
 import React from 'react';
 import { useState } from 'react';
 import axios from '../api';
-import { Input, Select, Col, Row } from 'antd';
+import { Input, Select, Col, Row, Button } from 'antd';
+import { SearchOutlined } from '@ant-design/icons';
 import '../css/filter.css'
 
 const Filter = (type) => {
@@ -41,7 +42,7 @@ const Filter = (type) => {
     return (
         <div className='filterContainer'>
                 <Row>
-                    <Col span={4}>
+                    <Col>
                     <Select
                       defaultValue="Mixer"
                       size="large"
@@ -73,7 +74,7 @@ const Filter = (type) => {
                       ]}
                     />
                     </Col>
-                    <Col span={5}>
+                    <Col>
                 <Select
                     showSearch
                     size="large"
@@ -114,19 +115,41 @@ const Filter = (type) => {
                     ]}
                   />
                   </Col>
-                  <Col span={5}>
+                  <Col>
                 <Input placeholder="Name" onChange={handleChange(setName)}></Input>
                 </Col>
-                <Col span={5}>
+                <Col>
                 <Input placeholder="Activity" onChange={handleChange(setAct)}></Input>
                 </Col>
-            <div>
-                <button onClick={send}>   send   </button> 
-                <button onClick={search}> search </button> 
-            </div>
+                <Col>
+                <Button type="primary" onClick={send}>   send   </Button>
+                </Col>
+                <Col> 
+                <Button type="primary" icon={<SearchOutlined />} onClick={search}> Search </Button> 
+                </Col>
             </Row>
-            <h2>Equipments list</h2> { Data.map((element, id) => (
-                <p>{element.Name} {element.Equipment} {element.EquipNum} {element.Activity} {element.date}</p>
+            { Data.map((item) => (
+                <>
+                  <div className='resBlock' id={item.id} key={item.id} onClick={() => {EquipmentPage(item.id)}}>
+                    <div className='resImgContainer'>
+                      <img className='resImg' src={item.img}/>
+                    </div>
+                    <div className='resInfo'>
+                      <div className='title'>
+                        <p className='name'>{item.name}</p>
+                        <p className='price'>{getPrice(item.price)}</p>
+                        <p className='distance'>{item.distance / 1000} km</p>
+                      </div>
+                      <p className='description'>{item.tag.map((description, i) => {
+                        if (i !== 0)
+                            return `, ${description}`;
+                        else
+                            return `${description}`;
+                      })}
+                      </p>
+                    </div>
+                  </div>
+                </>
             ))}
             
         </div>
