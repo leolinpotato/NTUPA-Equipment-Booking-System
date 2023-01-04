@@ -9,6 +9,7 @@ import EquipmentListPage from './container/equipmentListPage';
 import SearchEquipmentPage from './container/searchEquipmentPage';
 import AddRemoveEquipmentPage from './container/addRemoveEquipmentPage';
 import ActivitiesRecordPage from './container/activitiesRecordPage';
+import EquipmentPage from './container/equipmentPage';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 
 function App() {
@@ -26,6 +27,7 @@ function App() {
               <Route path="/searchEquipment" element={<SearchEquipmentPage />} />
               <Route path="/addRemoveEquipment" element={<AddRemoveEquipmentPage />} />
               <Route path="/activitiesRecord" element={<ActivitiesRecordPage />} />
+              <Route path="/equipment/:id" element={<EquipmentPage />} />
           </Routes>
         </div>
     </Router>

@@ -1,7 +1,7 @@
 import React from 'react';
 import { useState } from 'react';
 import axios from '../api';
-import { Input, Select, Col, Row, Button } from 'antd';
+import { Input, Select, Col, Row, Button, Space } from 'antd';
 import { SearchOutlined } from '@ant-design/icons';
 import '../css/filter.css'
 
@@ -41,8 +41,8 @@ const Filter = (type) => {
 
     return (
         <div className='filterContainer'>
-                <Row className='filterRow'>
-                    <Col span={4}>
+            <div className='filterRow'>
+                <Space.Compact block='true'>
                     <Select
                       defaultValue="Mixer"
                       size="large"
@@ -73,80 +73,66 @@ const Filter = (type) => {
                         }
                       ]}
                     />
-                    </Col>
-                    <Col>
-                <Select
-                    showSearch
-                    size="large"
-                    style={{
-                      width: 200,
-                    }}
-                    placeholder="Equipment"
-                    optionFilterProp="children"
-                    filterOption={(input, option) => (option?.label ?? '').includes(input)}
-                    filterSort={(optionA, optionB) =>
-                      (optionA?.label ?? '').toLowerCase().localeCompare((optionB?.label ?? '').toLowerCase())
+                    <Select
+                      showSearch
+                      size="large"
+                      style={{
+                        width: 200,
+                      }}
+                      placeholder="Equipment"
+                      optionFilterProp="children"
+                      filterOption={(input, option) => (option?.label ?? '').includes(input)}
+                      filterSort={(optionA, optionB) =>
+                        (optionA?.label ?? '').toLowerCase().localeCompare((optionB?.label ?? '').toLowerCase())
+                      }
+                      options={[
+                        {
+                          value: '1',
+                          label: 'Not Identified',
+                        },
+                        {
+                          value: '2',
+                          label: 'Closed',
+                        },
+                        {
+                          value: '3',
+                          label: 'Communicated',
+                        },
+                        {
+                          value: '4',
+                          label: 'Identified',
+                        },
+                        {
+                          value: '5',
+                          label: 'Resolved',
+                        },
+                        {
+                          value: '6',
+                          label: 'Cancelled',
+                        },
+                      ]}
+                    />
+                    { type.type.type === 'borrow' ? <></> :
+                    <>
+                        <Input placeholder="Name" onChange={handleChange(setName)}></Input>
+                        <Input placeholder="Activity" onChange={handleChange(setAct)}></Input>
+                    </>
                     }
-                    options={[
-                      {
-                        value: '1',
-                        label: 'Not Identified',
-                      },
-                      {
-                        value: '2',
-                        label: 'Closed',
-                      },
-                      {
-                        value: '3',
-                        label: 'Communicated',
-                      },
-                      {
-                        value: '4',
-                        label: 'Identified',
-                      },
-                      {
-                        value: '5',
-                        label: 'Resolved',
-                      },
-                      {
-                        value: '6',
-                        label: 'Cancelled',
-                      },
-                    ]}
-                  />
-                  </Col>
-                  <Col>
-                <Input placeholder="Name" onChange={handleChange(setName)}></Input>
-                </Col>
-                <Col>
-                <Input placeholder="Activity" onChange={handleChange(setAct)}></Input>
-                </Col>
-                <Col>
-                <Button type="primary" onClick={send} style={{ background: "red", borderColor: "yellow" }}>   send   </Button>
-                </Col>
-                <Col> 
-                <Button type="primary" icon={<SearchOutlined />} onClick={search}> Search </Button> 
-                </Col>
-            </Row>
+                    <Button onClick={send}>send</Button>
+                    <Button type="primary" icon={<SearchOutlined />} onClick={search}> Search </Button> 
+                </Space.Compact>
+            </div>
             { Data.map((item) => (
                 <>
-                  <div className='resBlock' id={item.id} key={item.id} onClick={() => {EquipmentPage(item.id)}}>
+                  <div className='resBlock'>
                     <div className='resImgContainer'>
-                      <img className='resImg' src={item.img}/>
                     </div>
                     <div className='resInfo'>
                       <div className='title'>
-                        <p className='name'>{item.name}</p>
-                        <p className='price'>{getPrice(item.price)}</p>
-                        <p className='distance'>{item.distance / 1000} km</p>
+                        <p className='equipment'>{item.Equipment}</p>
+                        <p className='attr'>{item.attr}</p>
+                        <p className='equipNum'>{item.EquipNum}</p>
                       </div>
-                      <p className='description'>{item.tag.map((description, i) => {
-                        if (i !== 0)
-                            return `, ${description}`;
-                        else
-                            return `${description}`;
-                      })}
-                      </p>
                     </div>
                   </div>
                 </>
