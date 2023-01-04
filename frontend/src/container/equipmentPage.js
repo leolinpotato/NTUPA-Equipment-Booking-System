@@ -47,6 +47,7 @@ const Equipment = () => {
 					    {item.Name}
 					    {item.Activity}
 					    {item.EquipNum}
+					    {item.Incharger}
 					</div>
 			    )
 			})}

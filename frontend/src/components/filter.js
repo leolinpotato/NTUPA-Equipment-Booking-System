@@ -1,7 +1,7 @@
 import React from 'react';
 import { useState, useEffect } from 'react';
 import axios from '../api';
-import { Input, Select, Col, Row, Button, Space, Tag, InputNumber } from 'antd';
+import { Input, Select, Col, Row, Button, Space, Tag, InputNumber, Popconfirm } from 'antd';
 import { SearchOutlined } from '@ant-design/icons';
 import '../css/filter.css'
 import EquipBlock from '../container/equipBlock';
@@ -45,6 +45,24 @@ const Filter = ({type, props}) => {
         setFlag(true);
     }
 
+    const displayData = () => {
+        Data.map((item, id) => {
+        let path = '';
+        for (let i of initList) {
+            if (i.equip === item.Equipment) {
+                path = i.img;
+                break;
+            }
+        }
+        return <EquipBlock type={type} props={props} item={item} path={path}/>
+        })
+    }
+
+    const displayInitList = () => {
+        initList.map((item, id) => {
+        return <EquipBlock type={type} props={props} item={item} path={item.img}/>
+        })
+    }
 
     return (
         <div className='filterContainer'>
@@ -152,16 +170,26 @@ const Filter = ({type, props}) => {
             }
             </div>
             <div className='filterDisplay'>
-            { Data.map((item, id) => {
-                let path = '';
-                for (let i of initList) {
-                    if (i.equip === item.Equipment) {
-                        path = i.img;
-                        break;
+                { type === 'search' ? 
+                (
+                    Data.map((item, id) => {
+                    let path = '';
+                    for (let i of initList) {
+                        if (i.equip === item.Equipment) {
+                            path = i.img;
+                            break;
+                        }
                     }
+                    return <EquipBlock type={type} props={props} item={item} attr={item.attr} equipment={item.Equipment} path={path}/>
+                    })
+                )
+                :
+                (
+                    initList.map((item, id) => {
+                    return <EquipBlock type={type} props={props} item={item} attr={item.attr} equipment={item.equip} path={item.img}/>
+                    })
+                )
                 }
-                return <EquipBlock type={type} props={props} item={item} path={path}/>
-            })}
             </div>
         </div>
     )

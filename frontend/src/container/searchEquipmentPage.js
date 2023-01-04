@@ -1,9 +1,9 @@
 import React from 'react';
 import DisplayEquipment from './displayEquipment';
 
-const EquipmentListPage = () => {
+const SearchEquipmentPage = () => {
     return (
         <DisplayEquipment type='search'/>
     )
 }
-export default EquipmentListPage
+export default SearchEquipmentPage

@@ -6,7 +6,7 @@ import { Input, Select, Col, Row, Button, Space, Tag, InputNumber, Popconfirm, m
 import { SearchOutlined } from '@ant-design/icons';
 import '../css/filter.css'
 
-const EquipBlock = ({type, props, item, path}) => {
+const EquipBlock = ({type, props, item, equipment, attr, path}) => {
     const [ Count, setCount ] = useState(0);
 
     const attrColor = (attr) => {
@@ -62,12 +62,12 @@ const EquipBlock = ({type, props, item, path}) => {
         <>
           <div className='resBlock'>
             <div className='resImgContainer'>
-              <img className='resImg' src={path} onClick={() => ToEquip(item.Equipment)}/>
+              <img className='resImg' src={path} onClick={() => ToEquip(equipment)}/>
             </div>
             <div className='resInfo'>
               <div className='title'>
-                <p className='equipment' style={{ color: "white" }}>{item.Equipment}</p>
-                <Tag color={attrColor(item.attr)}>{item.attr}</Tag>
+                <p className='equipment' style={{ color: "white" }}>{equipment}</p>
+                <Tag color={attrColor(attr)}>{attr}</Tag>
               </div>
             </div>
             { type === 'borrow' ?
