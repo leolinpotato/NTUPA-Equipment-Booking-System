@@ -4,7 +4,7 @@ import { useParams, useLocation } from 'react-router-dom'
 import axios from '../api';
 import { Input, Select, Col, Row, Button, Space, Tag, InputNumber, Popconfirm, message } from 'antd';
 import { SearchOutlined } from '@ant-design/icons';
-import '../css/filter.css'
+import '../css/equipmentPage.css'
 
 const Equipment = () => {
 	const { id } = useParams();
@@ -33,12 +33,13 @@ const Equipment = () => {
 
 	return (
 		<>
-			<div className='filterRow'>
+			<div className='equipmentPageRow'>
 			    <div className='title'>{id}</div>
+			    <Tag color={attrColor(state.attr)} className='equipmentPageTag'>{state.attr}</Tag>
 			</div>
+			<div className='equipmentPageRow2'>
 			<div className='imgContainer'>
-			    <img src={state.path}/>
-			    <Tag color={attrColor(state.attr)}>{state.attr}</Tag>
+			    <img src={state.path} className='equipmentPagePicture'/>
 			</div>
 			<div className='infoContainer'>
 			{ Data.map((item) => {
@@ -51,6 +52,7 @@ const Equipment = () => {
 					</div>
 			    )
 			})}
+			</div>
 			</div>
 		</>
 	)
