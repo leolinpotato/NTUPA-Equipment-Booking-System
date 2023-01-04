@@ -6,32 +6,20 @@ import { SearchOutlined } from '@ant-design/icons';
 import '../css/filter.css'
 import EquipBlock from '../container/equipBlock';
 
-const Filter = ({type}) => {
+const Filter = ({type, activity, start, end, borrow}) => {
     const [ Name, setName ] = useState('');
     const [ Equipment, setEquip ] = useState('');
     const [ EquipNum, setNum ] = useState(0);
     const [ Activity, setAct ] = useState('');
     const [ Attr, setAttr] = useState('');
     const [ Data, setData ] = useState([]);
-    
+
     const handleChange = (func) => (e) => {
         func(e.target.value);
     }
 
     const handleSelect = (func) => (e) => {
         func(e);
-    }
-
-    const send = async () => {
-        if(!(Name && EquipNum && Equipment && Activity)) console.log('not good');
-        else{
-            const { data: { message } } = await axios.post('/reqHandle', {
-                Name,
-                Equipment,
-                EquipNum,
-                Activity
-            });
-        }
     }
 
     const search = async () => {
@@ -144,7 +132,7 @@ const Filter = ({type}) => {
             </div>
             <div className='filterDisplay'>
             { Data.map((item, id) => (
-                <EquipBlock type={type} item={item} id={id}/>
+                <EquipBlock type={type} item={item} id={id} activity={activity} start={start} end={end} borrow={borrow}/>
             ))}
             </div>
         </div>
