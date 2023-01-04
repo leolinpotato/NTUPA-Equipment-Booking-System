@@ -42,14 +42,25 @@ const Filter = ({type}) => {
     return (
         <div className='filterContainer'>
             <div className='filterRow'>
+            { type === 'record' ? 
+                <>
+                    <Input size='large' placeholder="Activity" onChange={handleChange(setAct)}></Input>
+                    <Button size='large'type="primary" icon={<SearchOutlined />} onClick={search} style={{ background: "rgb(189, 159, 127)" }}> Search </Button> 
+                </>
+                :
+                <>
                     <Select
-                      defaultValue="Mixer"
+                      defaultValue="All"
                       size="large"
                       style={{
                         width: 140,
                       }}
                       onChange={handleChange(setAttr)}
                       options={[
+                        {
+                            value: 'all',
+                            label: 'All',
+                        },
                         {
                           value: 'wire',
                           label: 'Wire',
@@ -69,7 +80,7 @@ const Filter = ({type}) => {
                         {
                             value: 'mixer',
                             label: 'Mixer',
-                        }
+                        },
                       ]}
                     />
                     <Select
@@ -111,13 +122,18 @@ const Filter = ({type}) => {
                           },
                         ]}
                     />
-                    { type === 'borrow' ? <></> :
+                    { type === 'search' ? 
                     <>
-                        <Input placeholder="Name" onChange={handleChange(setName)}></Input>
-                        <Input placeholder="Activity" onChange={handleChange(setAct)}></Input>
+                        <Input size='large' placeholder="Name" onChange={handleChange(setName)}></Input>
+                        <Input size='large' placeholder="Activity" onChange={handleChange(setAct)}></Input>
+                    </>
+                    :
+                    <>
                     </>
                     }
-                    <Button type="primary" icon={<SearchOutlined />} onClick={search} style={{ background: "rgb(189, 159, 127)" }}> Search </Button> 
+                    <Button size='large'type="primary" icon={<SearchOutlined />} onClick={search} style={{ background: "rgb(189, 159, 127)" }}> Search </Button> 
+                </>
+            }
             </div>
             <div className='filterDisplay'>
             { Data.map((item) => (

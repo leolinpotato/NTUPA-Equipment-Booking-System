@@ -1,11 +1,9 @@
-import React from 'react'
-//import '../css/mainPage.css'
+import React from 'react';
+import DisplayEquipment from './displayEquipment';
 
-const EquipmentListPage = () => {
+const ActivitiesRecordPage = () => {
     return (
-        <div className='equipmentListPageContainer'>
-            <h2>Equipments list</h2>
-        </div>
+        <DisplayEquipment type='record'/>
     )
 }
-export default EquipmentListPage
+export default ActivitiesRecordPage
