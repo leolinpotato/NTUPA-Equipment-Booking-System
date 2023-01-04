@@ -41,25 +41,26 @@ const BorrowPage = () => {
                   onFinish={onFinish}
                   onFinishFailed={onFinishFailed}
                   autoComplete="off"
+                  className='form'
                 >
-                <h1> 活動資訊 </h1>
-                  <Form.Item label="活動名稱" name="Activity">
+                <h1> Activity Information </h1>
+                  <Form.Item label="Activity" name="Activity">
                     <Input />
                   </Form.Item>
 
-                  <Form.Item label="活動時間" name="ActivityDate">
+                  <Form.Item label="Activity Date" name="ActivityDate">
                     <RangePicker />
                   </Form.Item>
 
-                  <Form.Item label="活動地點" name="Location">
+                  <Form.Item label="Activity Location" name="Location">
                     <Input />
                   </Form.Item>
 
-                  <Form.Item label="活動負責人" name="Incharger">
+                  <Form.Item label="Coordinator" name="Incharger">
                     <Input />
                   </Form.Item>
 
-                  <Form.Item label="器材租借人" name="Name" rules={[
+                  <Form.Item label="Borrower" name="Name" rules={[
                       {
                         required: true,
                       },
@@ -68,7 +69,7 @@ const BorrowPage = () => {
                     <Input />
                   </Form.Item>
 
-                  <Form.Item label="租借日期" name="date" rules={[
+                  <Form.Item label="Borrow Date" name="date" rules={[
                       {
                         required: true,
                       },
@@ -83,10 +84,10 @@ const BorrowPage = () => {
                       span: 16,
                     }}
                   >
-                  <Button type="primary" htmlType="submit">
+                  <Button type="primary" htmlType="submit" style={{ background: "rgb(189, 159, 127)" }}>
                     Submit
                   </Button>
-                  <Button htmlType="button" onClick={onReset}>
+                  <Button type="primary" htmlType="button" onClick={onReset} style={{ background: "rgb(189, 159, 127)" }}>
                     Reset
                   </Button>
                   </Form.Item>
