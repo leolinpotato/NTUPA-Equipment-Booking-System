@@ -3,7 +3,9 @@ import mongoose from 'mongoose'
 const Schema = mongoose.Schema;
 
 const RequestSchema = new Schema({
-	date: String,
+	BorrowDate: Date,
+	StartDate: Date,
+	EndDate: Date,
 	Name: String,
 	Activity: String,
 	Equipment: String,

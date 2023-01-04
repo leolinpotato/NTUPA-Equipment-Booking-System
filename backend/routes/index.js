@@ -1,5 +1,5 @@
 import {Router} from 'express';
-import Request from '../models/Schema'
+import Request from '../models/Request'
 import attr from '../models/attr'
 const router = Router();
 
@@ -16,12 +16,8 @@ router.get('/reqHandle', async (req, res) => {
 
 router.post('/reqHandle', async (req, res) => {
 	const tt = await attr.findOne({equip: req.body.Equipment});
-	const Name = req.body.Name;
-	const Equipment = req.body.Equipment;
-	const EquipNum = req.body.EquipNum;
-	const Activity = req.body.Activity;
-	const date = new Date().toLocaleString();
-	const newdt = new Request({date, Name, Activity, EquipNum, Equipment, attr: tt.attr});
+	const newdt = new Request(req.body); //{date, Name, Activity, EquipNum, Equipment, attr: tt.attr});
+	newdt.attr = tt.attr;
 	await newdt.save();
 	res.json({message: "succeed!"});
 })
