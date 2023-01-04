@@ -2,7 +2,8 @@
 	background: rgb(189, 159, 127);
 	width: 17em;
 	height: calc(100% - 10em);
-	position: absolute;
+	position: fixed;
+	top: 10em;
 }
 
 .sideBarRow {

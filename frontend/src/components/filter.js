@@ -5,7 +5,7 @@ import { Input, Select, Col, Row, Button, Space } from 'antd';
 import { SearchOutlined } from '@ant-design/icons';
 import '../css/filter.css'
 
-const Filter = (type) => {
+const Filter = ({type}) => {
     const [ Name, setName ] = useState('');
     const [ Equipment, setEquip ] = useState('');
     const [ EquipNum, setNum ] = useState(0);
@@ -111,14 +111,13 @@ const Filter = (type) => {
                             label: 'Cancelled',
                           },
                         ]}
-                      />
-                    { type.type.type === 'borrow' ? <></> :
+                    />
+                    { type === 'borrow' ? <></> :
                     <>
                         <Input placeholder="Name" onChange={handleChange(setName)}></Input>
                         <Input placeholder="Activity" onChange={handleChange(setAct)}></Input>
                     </>
                     }
-                        <Button onClick={send}>send</Button>
                         <Button type="primary" icon={<SearchOutlined />} onClick={search}> Search </Button> 
                 </Space.Compact>
             </div>
