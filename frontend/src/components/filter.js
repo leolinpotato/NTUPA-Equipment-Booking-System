@@ -13,8 +13,12 @@ const Filter = ({type}) => {
     const [ Attr, setAttr] = useState('');
     const [ Data, setData ] = useState([]);
 
-    const handleChange = (st) => (e) => {
-        st(e.target.value);
+    const handleChange = (func) => (e) => {
+        func(e.target.value);
+    }
+
+    const handleSelect = (func) => (e) => {
+        func(e);
     }
 
     const send = async () => {
@@ -34,7 +38,8 @@ const Filter = ({type}) => {
             Name:(Name) ? Name : null,
             Equipment:(Equipment) ? Equipment : null,
             EquipNum:(EquipNum) ? EquipNum : null,
-            Activity:(Activity) ? Activity : null
+            Activity:(Activity) ? Activity : null,
+            attr: (Attr && Attr !== 'All') ? Attr : null
         }});
         setData(data);
     }
@@ -52,7 +57,8 @@ const Filter = ({type}) => {
             <div className='filterRow'>
             { type === 'record' ? 
                 <>
-                    <Input size='large' placeholder="Activity" onChange={handleChange(setAct)} style={{ width: "65%" }}></Input>
+                    <Input size='large' placeholder="Activity" onChange={handleChange(setAct)} style={{ width: "40%" }}></Input>
+                    <Input size='large' placeholder="Borrower" onChange={handleChange(setName)} style={{ width: "40%" }}></Input>
                     <Button size='large'type="primary" icon={<SearchOutlined />} onClick={search} style={{ background: "rgb(189, 159, 127)" }}> Search </Button> 
                 </>
                 :
@@ -63,30 +69,30 @@ const Filter = ({type}) => {
                       style={{
                         width: 140,
                       }}
-                      onChange={handleChange(setAttr)}
+                      onChange={handleSelect(setAttr)}
                       options={[
                         {
-                            value: 'all',
+                            value: 'All',
                             label: 'All',
                         },
                         {
-                          value: 'wire',
+                          value: 'Wire',
                           label: 'Wire',
                         },
                         {
-                          value: 'stand',
+                          value: 'Stand',
                           label: 'Stand',
                         },
                         {
-                          value: 'instrument',
+                          value: 'Instrument',
                           label: 'Instrument',
                         },
                         {
-                          value: 'speaker',
+                          value: 'Speaker',
                           label: 'Speaker',
                         },
                         {
-                            value: 'mixer',
+                            value: 'Mixer',
                             label: 'Mixer',
                         },
                       ]}
@@ -132,11 +138,11 @@ const Filter = ({type}) => {
                     />
                     { type === 'search' ? 
                     <>
+                        <Input size='large' placeholder="Borrower" onChange={handleChange(setName)} className='filterName' style={{ width: "20%" }}></Input>
+                        <Input size='large' placeholder="Activity" onChange={handleChange(setAct)} className='filterActivity' style={{ width: "20%" }}></Input>
                     </>
                     :
                     <>
-                        <Input size='large' placeholder="Name" onChange={handleChange(setName)} className='filterName'></Input>
-                        <Input size='large' placeholder="Activity" onChange={handleChange(setAct)} className='filterActivity'></Input>
                     </>
                     }
                     <Button size='large'type="primary" icon={<SearchOutlined />} onClick={search} style={{ background: "rgb(189, 159, 127)" }}> Search </Button> 
