@@ -42,7 +42,6 @@ const Filter = (type) => {
     return (
         <div className='filterContainer'>
             <div className='filterRow'>
-                <Space.Compact block='true'>
                     <Select
                       defaultValue="Mixer"
                       size="large"
@@ -118,9 +117,7 @@ const Filter = (type) => {
                         <Input placeholder="Activity" onChange={handleChange(setAct)}></Input>
                     </>
                     }
-                    <Button onClick={send}>send</Button>
-                    <Button type="primary" icon={<SearchOutlined />} onClick={search}> Search </Button> 
-                </Space.Compact>
+                    <Button type="primary" icon={<SearchOutlined />} onClick={search} style={{ background: "rgb(189, 159, 127)" }}> Search </Button> 
             </div>
             { Data.map((item) => (
                 <>

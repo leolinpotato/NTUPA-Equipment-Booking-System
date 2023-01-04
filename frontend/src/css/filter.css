@@ -1,13 +1,10 @@
 .filterRow {
-    width: 80%;
+    width: 100%;
     height: 6em;
     flex-direction: row;
     position: relative;
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
-}
-
-p {
-    color: black;
+    background: rgb(219, 197, 180);
 }
