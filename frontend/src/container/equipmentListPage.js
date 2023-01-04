@@ -41,7 +41,7 @@ const EquipmentListPage = () => {
 	}
 
 	const newAttr = async () => {
-		if(Equipment && attr){
+		if(Equipment && attr && img){
 			const { data: { message }} = await axios.post('/attr', {
 				equip: Equipment,
 				attr,

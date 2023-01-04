@@ -1,5 +1,5 @@
 import React from 'react';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import axios from '../api';
 import { Input, Select, Col, Row, Button, Space, Tag, InputNumber } from 'antd';
 import { SearchOutlined } from '@ant-design/icons';
@@ -13,9 +13,17 @@ const Filter = ({type, props}) => {
     const [ Activity, setAct ] = useState('');
     const [ Attr, setAttr] = useState('');
     const [ Data, setData ] = useState([]);
+    let initList =  [];
+
+    const init = async() => {
+        initList = await axios.get('/init');
+        console.log(initList.data);
+    }
+    
+    init();
 
     const handleChange = (func) => (e) => {
-        func(e.target.value);
+        func(e.target.value);       
     }
 
     const handleSelect = (func) => (e) => {
@@ -32,6 +40,7 @@ const Filter = ({type, props}) => {
         }});
         setData(data);
     }
+
 
     return (
         <div className='filterContainer'>
@@ -131,9 +140,16 @@ const Filter = ({type, props}) => {
             }
             </div>
             <div className='filterDisplay'>
-            { Data.map((item, id) => (
-                <EquipBlock type={type} props={props} item={item}/>
-            ))}
+            { Data.map((item, id) => {
+                let path = '';
+                for (let i of initList) {
+                    if (i.equip === item.Equipment) {
+                        path = i.img;
+                        break;
+                    }
+                }
+                return <EquipBlock type={type} props={props} item={item} path={path}/>
+            })}
             </div>
         </div>
     )
