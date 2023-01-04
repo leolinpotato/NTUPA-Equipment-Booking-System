@@ -5,7 +5,7 @@ import { Input, Select, Col, Row, Button, Space, Tag, InputNumber } from 'antd';
 import { SearchOutlined } from '@ant-design/icons';
 import '../css/filter.css'
 
-const EquipBlock = ({type, props, item}) => {
+const EquipBlock = ({type, props, item, path}) => {
     const [ Count, setCount ] = useState([]);
 
     const attrColor = (attr) => {
@@ -42,7 +42,7 @@ const EquipBlock = ({type, props, item}) => {
         <>
           <div className='resBlock'>
             <div className='resImgContainer'>
-              <img className='resImg' src={item.img}/>
+              <img className='resImg' src={path}/>
             </div>
             <div className='resInfo'>
               <div className='title'>

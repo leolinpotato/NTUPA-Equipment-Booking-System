@@ -38,7 +38,7 @@ router.get('/init', async (_, res) => {
 	const ATTR = await attr.find();
 	const ret = [];
 	for(let i of ATTR){
-		ret.push({equip: i.equip, attr: i.attr, img: attr.img})
+		ret.push({equip: i.equip, attr: i.attr, img: i.img})
 	}
 	res.json(ret);
 })
