@@ -113,8 +113,8 @@ const Filter = ({type}) => {
                     />
                     { type === 'borrow' ? <></> :
                     <>
-                        <Input placeholder="Name" onChange={handleChange(setName)}></Input>
-                        <Input placeholder="Activity" onChange={handleChange(setAct)}></Input>
+                        <Input placeholder="Name" onChange={handleChange(setName)} className='filterName'></Input>
+                        <Input placeholder="Activity" onChange={handleChange(setAct)} className='filterActivity'></Input>
                     </>
                     }
                     <Button type="primary" icon={<SearchOutlined />} onClick={search} style={{ background: "rgb(189, 159, 127)" }}> Search </Button> 
