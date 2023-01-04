@@ -35,10 +35,10 @@ const EquipBlock = ({type, item, id}) => {
             <>
                 <Space>
                   <InputNumber min={0} max={20} defaultValue={0} onChange={setCount} />
-                  <Button type='primary' onClick={setCount}>
+                  <Button type='primary' onClick={setCount} style={{ background: "rgb(189, 159, 127)" }}>
                       Borrow
                   </Button>
-                  <Button type='primary' onClick={onReset}>
+                  <Button type='primary' onClick={onReset} style={{ background: "rgb(189, 159, 127)" }}>
                       Reset
                   </Button>
                 </Space>
@@ -47,10 +47,10 @@ const EquipBlock = ({type, item, id}) => {
             <>
                 <Space>
                   <InputNumber min={0} max={20} defaultValue={0} onChange={setCount} />
-                  <Button type='primary' onClick={setCount}>
+                  <Button type='primary' onClick={setCount} style={{ background: "rgb(189, 159, 127)" }}>
                       Return
                   </Button>
-                  <Button type='primary' onClick={onReset}>
+                  <Button type='primary' onClick={onReset} style={{ background: "rgb(189, 159, 127)" }}>
                       Reset
                   </Button>
                 </Space>
