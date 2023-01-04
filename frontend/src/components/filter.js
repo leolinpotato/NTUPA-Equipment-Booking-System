@@ -13,14 +13,17 @@ const Filter = ({type, props}) => {
     const [ Activity, setAct ] = useState('');
     const [ Attr, setAttr] = useState('');
     const [ Data, setData ] = useState([]);
-    let initList =  [];
+    const [ flag, setFlag ] = useState(false);
+    const [ initList, setList ] = useState([]);
 
     const init = async() => {
-        initList = await axios.get('/init');
-        console.log(initList.data);
+        const dt = await axios.get('/init');
+        setList(dt.data);
     }
     
-    init();
+    useEffect(()=>{
+        init();  
+    },[])
 
     const handleChange = (func) => (e) => {
         func(e.target.value);       
@@ -39,6 +42,7 @@ const Filter = ({type, props}) => {
             attr: (Attr && Attr !== 'All') ? Attr : null
         }});
         setData(data);
+        setFlag(true);
     }
 
 

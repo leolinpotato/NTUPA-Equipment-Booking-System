@@ -42,7 +42,7 @@ const EquipBlock = ({type, props, item, path}) => {
         <>
           <div className='resBlock'>
             <div className='resImgContainer'>
-              <img className='resImg' src="../src/picture/Cajon-2.png"/>
+              <img className='resImg' src={path}/>
             </div>
             <div className='resInfo'>
               <div className='title'>
