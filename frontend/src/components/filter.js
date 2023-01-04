@@ -119,6 +119,7 @@ const Filter = ({type}) => {
                     }
                     <Button type="primary" icon={<SearchOutlined />} onClick={search} style={{ background: "rgb(189, 159, 127)" }}> Search </Button> 
             </div>
+            <div className='filterDisplay'>
             { Data.map((item) => (
                 <>
                   <div className='resBlock'>
@@ -134,7 +135,7 @@ const Filter = ({type}) => {
                   </div>
                 </>
             ))}
-            
+            </div>
         </div>
     )
 }

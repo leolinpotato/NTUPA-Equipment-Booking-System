@@ -1,12 +1,13 @@
 .filterRow {
-    width: 100%;
-    height: 6em;
+    width: calc(100% - 17em);
+    height: 5em;
     flex-direction: row;
-    position: relative;
+    position: fixed;
     display: flex;
     justify-content: center;
     align-items: center;
     background: rgb(219, 197, 180);
+    z-index: 100;
 }
 
 p {
@@ -20,11 +21,22 @@ p {
     background-color: rgb(83, 119, 186);
     width: 100%;
     height: 100vh;
-    padding: 3em;
     overflow-y: auto;
     justify-content: center;
     text-align: center;
     color: aliceblue;
+}
+
+.filterDisplay {
+    display: flex;
+    flex-wrap: wrap;
+    position: relative;
+    top: 5em;
+    background-color: rgb(83, 119, 186);
+    width: 100%;
+    overflow-y: auto;
+    justify-content: center;
+    text-align: center;
 }
 
 .resBlock {
