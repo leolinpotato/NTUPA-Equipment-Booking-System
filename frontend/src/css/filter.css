@@ -65,7 +65,9 @@ p {
 }
 
 .resImg {
+    top: 10px;
     width: 250px;
+    border-radius: 8px;
 }
 
 .resInfo {
