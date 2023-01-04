@@ -39,15 +39,6 @@ const EquipBlock = ({type, props, item, equipment, attr, path}) => {
         setCount(0);
     }
 
-    const confirm = (e) => {
-      console.log(e);
-      message.success('Click on Yes');
-    };
-    const cancel = (e) => {
-      console.log(e);
-      message.error('Click on No');
-    };
-
     const navigate = useNavigate(); 
     const ToEquip = (equipment) => {
         navigate('/equipment/' + equipment, {
@@ -77,13 +68,12 @@ const EquipBlock = ({type, props, item, equipment, attr, path}) => {
                   <Popconfirm
                       title="Borrow Equipment"
                       description="Are you sure to borrow this equipment?"
-                      onConfirm={confirm}
-                      onCancel={cancel}
+                      onConfirm={send}
                       okText="Yes"
-                      cancelText="No"
+                      cancelButtonProps="Yes"
                       disabled={Count === 0 ? true : false}
                   >
-                      <Button type='primary' onClick={send} style={{ background: "rgb(189, 159, 127)" }} disabled={Count === 0 ? true : false}>
+                      <Button type='primary' style={{ background: "rgb(189, 159, 127)" }} disabled={Count === 0 ? true : false}>
                           Borrow
                       </Button>
                   </Popconfirm>
@@ -99,13 +89,12 @@ const EquipBlock = ({type, props, item, equipment, attr, path}) => {
                   <Popconfirm
                       title="Return Equipment"
                       description="Are you sure to return this equipment?"
-                      onConfirm={confirm}
-                      onCancel={cancel}
+                      onConfirm={send}
                       okText="Yes"
                       cancelText="No"
                       disabled={Count === 0 ? true : false}
                   >
-                      <Button type='primary' onClick={send} style={{ background: "rgb(189, 159, 127)" }} disabled={Count === 0 ? true : false}>
+                      <Button type='primary' style={{ background: "rgb(189, 159, 127)" }} disabled={Count === 0 ? true : false}>
                           Return
                       </Button>
                   </Popconfirm>

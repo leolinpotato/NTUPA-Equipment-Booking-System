@@ -4,7 +4,6 @@ import { useParams, useLocation } from 'react-router-dom'
 import axios from '../api';
 import { Input, Select, Col, Row, Button, Space, Tag, InputNumber, Popconfirm, message, Table } from 'antd';
 import { SearchOutlined } from '@ant-design/icons';
-import '../css/equipmentPage.css'
 
 const Equipment = () => {
 	const { id } = useParams();
