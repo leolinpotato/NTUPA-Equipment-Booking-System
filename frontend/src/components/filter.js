@@ -44,7 +44,7 @@ const Filter = ({type}) => {
             <div className='filterRow'>
             { type === 'record' ? 
                 <>
-                    <Input size='large' placeholder="Activity" onChange={handleChange(setAct)}></Input>
+                    <Input size='large' placeholder="Activity" onChange={handleChange(setAct)} style={{ width: "65%" }}></Input>
                     <Button size='large'type="primary" icon={<SearchOutlined />} onClick={search} style={{ background: "rgb(189, 159, 127)" }}> Search </Button> 
                 </>
                 :
@@ -124,13 +124,11 @@ const Filter = ({type}) => {
                     />
                     { type === 'search' ? 
                     <>
-                        <Input size='large' placeholder="Name" onChange={handleChange(setName)}></Input>
-                        <Input size='large' placeholder="Activity" onChange={handleChange(setAct)}></Input>
                     </>
                     :
                     <>
-                        <Input placeholder="Name" onChange={handleChange(setName)} className='filterName'></Input>
-                        <Input placeholder="Activity" onChange={handleChange(setAct)} className='filterActivity'></Input>
+                        <Input size='large' placeholder="Name" onChange={handleChange(setName)} className='filterName'></Input>
+                        <Input size='large' placeholder="Activity" onChange={handleChange(setAct)} className='filterActivity'></Input>
                     </>
                     }
                     <Button size='large'type="primary" icon={<SearchOutlined />} onClick={search} style={{ background: "rgb(189, 159, 127)" }}> Search </Button> 
