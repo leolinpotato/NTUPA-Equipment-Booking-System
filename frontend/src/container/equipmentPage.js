@@ -33,7 +33,7 @@ const Equipment = () => {
 
 	const columns = [
 	{
-		title: 'Borrower',
+		title: 'Name',
 		dataIndex: 'Name',
 		key: 'Name',
 	},
@@ -43,12 +43,17 @@ const Equipment = () => {
 		key: 'Activity',
 	},
 	{
+		title: 'State',
+		dataIndex: 'State',
+		key: 'State',
+	},
+	{
 		title: 'Num',
 		dataIndex: 'EquipNum',
 		key: 'EquipNum',
 	},
 	{
-		title: 'Borrow Date',
+		title: 'Date',
 		dataIndex: 'BorrowDate',
 		key: 'BorrowDate',
 	}];

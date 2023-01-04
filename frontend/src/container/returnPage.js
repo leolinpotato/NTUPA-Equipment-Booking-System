@@ -46,18 +46,26 @@ const ReturnPage = () => {
                   autoComplete="off"
                   className='form'
                 >
-                <h1> User Identification </h1>
+                <h1> Return Information </h1>
                   <Form.Item label="Activity" name="Activity">
                     <Input />
                   </Form.Item>
 
-                  <Form.Item label="Borrower" name="Name" rules={[
+                  <Form.Item label="Returner" name="Name" rules={[
                       {
                         required: true,
                       },
                     ]}
                   >
                     <Input />
+                  </Form.Item>
+                  <Form.Item label="Return Date" name="date" rules={[
+                      {
+                        required: true,
+                      },
+                    ]}
+                  >
+                    <DatePicker />
                   </Form.Item>
 
                   <Form.Item

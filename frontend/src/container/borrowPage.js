@@ -47,7 +47,7 @@ const BorrowPage = () => {
                   autoComplete="off"
                   className='form'
                 >
-                <h1> Activity Information </h1>
+                <h1> Borrow Information </h1>
                   <Form.Item label="Activity" name="Activity">
                     <Input />
                   </Form.Item>

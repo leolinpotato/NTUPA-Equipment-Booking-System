@@ -17,6 +17,14 @@ const EquipBlock = ({type, props, item, equipment, attr, path}) => {
                 return colorList[i];
     }
 
+    const stateColor = (state) => {
+        const stateList = ['borrow', 'return']
+        const colorList = ['green', 'red'];
+        for (let i = 0; i < stateList.length; i++)
+            if (state === stateList[i])
+                return colorList[i];
+    }
+
     const send = async () => {
         if(Count === 0) console.log('num = 0');
         else{
@@ -29,7 +37,8 @@ const EquipBlock = ({type, props, item, equipment, attr, path}) => {
                 BorrowDate: props.date,
                 StartDate: (props.ActivityDate) ? props.ActivityDate[0] : null,
                 EndDate: (props.ActivityDate) ? props.ActivityDate[1] : null,
-                Incharger: props.Incharger
+                Incharger: props.Incharger,
+                State: type
             });
             console.log('success');
         }
@@ -57,7 +66,17 @@ const EquipBlock = ({type, props, item, equipment, attr, path}) => {
             </div>
             <div className='resInfo'>
               <div className='title'>
+                { type === 'search' ?
+                <Tag color={stateColor(item.State)}>{item.State.toUpperCase()}</Tag>
+                :
+                <></>
+                }
                 <p className='equipment' style={{ color: "white" }}>{equipment}</p>
+                { type === 'search' ?
+                <Tag color='rgb(215,198,182)'>{item.EquipNum}</Tag>
+                :
+                <></>
+                }
                 <Tag color={attrColor(attr)}>{attr}</Tag>
               </div>
             </div>

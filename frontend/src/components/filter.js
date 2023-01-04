@@ -14,16 +14,19 @@ const Filter = ({type, props}) => {
     const [ Attr, setAttr] = useState('');
     const [ Data, setData ] = useState([]);
     const [ flag, setFlag ] = useState(false);
-    const [ initList, setList ] = useState([]);
+    const [ initList, setInitList ] = useState([]);
+    const [ list, setList] = useState([]);
 
     let options = [];
 
     const init = async() => {
         const dt = await axios.get('/init');
+        setInitList(dt.data);
         setList(dt.data);
     }
+    options[0] = {value: 'All', label: 'All'};
     initList.map((item, id) => {
-        options[id] = {value: id, label: item.equip};
+        options[id + 1] = {value: item.equip, label: item.equip};
     })
     
     useEffect(()=>{
@@ -41,13 +44,22 @@ const Filter = ({type, props}) => {
     const search = async () => {
         const { data } = await axios.get('/reqHandle', { params: {
             Name:(Name) ? Name : null,
-            Equipment:(Equipment) ? Equipment : null,
+            Equipment:(Equipment && Equipment !== 'All') ? Equipment : null,
             EquipNum:(EquipNum) ? EquipNum : null,
             Activity:(Activity) ? Activity : null,
             attr: (Attr && Attr !== 'All') ? Attr : null
         }});
         setData(data);
         setFlag(true);
+    }
+
+    const searchList = () => {
+        console.log(initList)
+        const newList = initList.filter(item => (Attr === 'All' || Attr === '' || item.attr === Attr) &&
+            (Equipment === 'All' || Equipment === '' || item.equip === Equipment));
+        setList(newList);
+        console.log(Attr)
+        console.log(Equipment)
     }
 
     const displayData = () => {
@@ -142,12 +154,13 @@ const Filter = ({type, props}) => {
                     <>
                         <Input size='large' placeholder="Borrower" onChange={handleChange(setName)} className='filterName' style={{ width: "20%" }}></Input>
                         <Input size='large' placeholder="Activity" onChange={handleChange(setAct)} className='filterActivity' style={{ width: "20%" }}></Input>
+                        <Button size='large'type="primary" icon={<SearchOutlined />} onClick={search} style={{ background: "rgb(189, 159, 127)" }}> Search </Button> 
                     </>
                     :
                     <>
+                        <Button size='large'type="primary" icon={<SearchOutlined />} onClick={searchList} style={{ background: "rgb(189, 159, 127)" }}> Search </Button> 
                     </>
                     }
-                    <Button size='large'type="primary" icon={<SearchOutlined />} onClick={search} style={{ background: "rgb(189, 159, 127)" }}> Search </Button> 
                 </>
             }
             </div>
@@ -167,7 +180,7 @@ const Filter = ({type, props}) => {
                 )
                 :
                 (
-                    initList.map((item, id) => {
+                    list.map((item, id) => {
                     return <EquipBlock type={type} props={props} item={item} attr={item.attr} equipment={item.equip} path={item.img}/>
                     })
                 )
