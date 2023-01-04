@@ -1,7 +1,7 @@
 import React from 'react';
 import { useState } from 'react';
 import axios from '../api';
-import { Input, Select, Col, Row, Button, Space } from 'antd';
+import { Input, Select, Col, Row, Button, Space, Tag } from 'antd';
 import { SearchOutlined } from '@ant-design/icons';
 import '../css/filter.css'
 
@@ -37,6 +37,14 @@ const Filter = ({type}) => {
             Activity:(Activity) ? Activity : null
         }});
         setData(data);
+    }
+
+    const attrColor = (attr) => {
+        const attrList = ['Wire', 'Stand', 'Instrument', 'Speaker', 'Mixer'];
+        const colorList = ['grey', 'black', 'red', 'blue', 'green'];
+        for (let i = 0; i < attrList.length; i++)
+            if (attr === attrList[i])
+                return colorList[i];
     }
 
     return (
@@ -124,13 +132,11 @@ const Filter = ({type}) => {
                     />
                     { type === 'search' ? 
                     <>
-                        <Input size='large' placeholder="Name" onChange={handleChange(setName)}></Input>
-                        <Input size='large' placeholder="Activity" onChange={handleChange(setAct)}></Input>
                     </>
                     :
                     <>
-                        <Input placeholder="Name" onChange={handleChange(setName)} className='filterName'></Input>
-                        <Input placeholder="Activity" onChange={handleChange(setAct)} className='filterActivity'></Input>
+                        <Input size='large' placeholder="Name" onChange={handleChange(setName)} className='filterName'></Input>
+                        <Input size='large' placeholder="Activity" onChange={handleChange(setAct)} className='filterActivity'></Input>
                     </>
                     }
                     <Button size='large'type="primary" icon={<SearchOutlined />} onClick={search} style={{ background: "rgb(189, 159, 127)" }}> Search </Button> 
@@ -146,8 +152,7 @@ const Filter = ({type}) => {
                     <div className='resInfo'>
                       <div className='title'>
                         <p className='equipment'>{item.Equipment}</p>
-                        <p className='attr'>{item.attr}</p>
-                        <p className='equipNum'>{item.EquipNum}</p>
+                        <Tag color={attrColor(item.attr)}>{item.attr}</Tag>
                       </div>
                     </div>
                   </div>
