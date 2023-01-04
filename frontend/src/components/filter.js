@@ -5,7 +5,7 @@ import { Input, Select, Col, Row, Button, Space } from 'antd';
 import { SearchOutlined } from '@ant-design/icons';
 import '../css/filter.css'
 
-const Filter = (type) => {
+const Filter = ({type}) => {
     const [ Name, setName ] = useState('');
     const [ Equipment, setEquip ] = useState('');
     const [ EquipNum, setNum ] = useState(0);
@@ -73,45 +73,45 @@ const Filter = (type) => {
                       ]}
                     />
                     <Select
-                      showSearch
-                      size="large"
-                      style={{
-                        width: 200,
-                      }}
-                      placeholder="Equipment"
-                      optionFilterProp="children"
-                      filterOption={(input, option) => (option?.label ?? '').includes(input)}
-                      filterSort={(optionA, optionB) =>
-                        (optionA?.label ?? '').toLowerCase().localeCompare((optionB?.label ?? '').toLowerCase())
-                      }
-                      options={[
-                        {
-                          value: '1',
-                          label: 'Not Identified',
-                        },
-                        {
-                          value: '2',
-                          label: 'Closed',
-                        },
-                        {
-                          value: '3',
-                          label: 'Communicated',
-                        },
-                        {
-                          value: '4',
-                          label: 'Identified',
-                        },
-                        {
-                          value: '5',
-                          label: 'Resolved',
-                        },
-                        {
-                          value: '6',
-                          label: 'Cancelled',
-                        },
-                      ]}
+                        showSearch
+                        size="large"
+                        style={{
+                          width: 200,
+                        }}
+                        placeholder="Equipment"
+                        optionFilterProp="children"
+                        filterOption={(input, option) => (option?.label ?? '').includes(input)}
+                        filterSort={(optionA, optionB) =>
+                          (optionA?.label ?? '').toLowerCase().localeCompare((optionB?.label ?? '').toLowerCase())
+                        }
+                        options={[
+                          {
+                            value: '1',
+                            label: 'Not Identified',
+                          },
+                          {
+                            value: '2',
+                            label: 'Closed',
+                          },
+                          {
+                            value: '3',
+                            label: 'Communicated',
+                          },
+                          {
+                            value: '4',
+                            label: 'Identified',
+                          },
+                          {
+                            value: '5',
+                            label: 'Resolved',
+                          },
+                          {
+                            value: '6',
+                            label: 'Cancelled',
+                          },
+                        ]}
                     />
-                    { type.type.type === 'borrow' ? <></> :
+                    { type === 'borrow' ? <></> :
                     <>
                         <Input placeholder="Name" onChange={handleChange(setName)}></Input>
                         <Input placeholder="Activity" onChange={handleChange(setAct)}></Input>
@@ -119,6 +119,7 @@ const Filter = (type) => {
                     }
                     <Button type="primary" icon={<SearchOutlined />} onClick={search} style={{ background: "rgb(189, 159, 127)" }}> Search </Button> 
             </div>
+            <div className='filterDisplay'>
             { Data.map((item) => (
                 <>
                   <div className='resBlock'>
@@ -134,7 +135,7 @@ const Filter = (type) => {
                   </div>
                 </>
             ))}
-            
+            </div>
         </div>
     )
 }

@@ -26,6 +26,7 @@ const BorrowPage = () => {
         {display ?
             <DisplayEquipment type='borrow'/>
             :
+            <div className='formContainer'>
             <Form
                   form={form}
                   name="basic"
@@ -92,6 +93,7 @@ const BorrowPage = () => {
                   </Button>
                   </Form.Item>
             </Form>
+            </div>
         }
       </>
     )

@@ -1,11 +1,9 @@
-import React from 'react'
-//import '../css/mainPage.css'
+import React from 'react';
+import DisplayEquipment from './displayEquipment';
 
 const EquipmentListPage = () => {
     return (
-        <div className='equipmentListPageContainer'>
-            <h2>Equipments list</h2>
-        </div>
+        <DisplayEquipment type='search'/>
     )
 }
 export default EquipmentListPage
