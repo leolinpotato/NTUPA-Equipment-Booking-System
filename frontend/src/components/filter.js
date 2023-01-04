@@ -4,6 +4,7 @@ import axios from '../api';
 import { Input, Select, Col, Row, Button, Space, Tag, InputNumber } from 'antd';
 import { SearchOutlined } from '@ant-design/icons';
 import '../css/filter.css'
+import EquipBlock from '../container/equipBlock';
 
 const Filter = ({type}) => {
     const [ Name, setName ] = useState('');
@@ -12,18 +13,13 @@ const Filter = ({type}) => {
     const [ Activity, setAct ] = useState('');
     const [ Attr, setAttr] = useState('');
     const [ Data, setData ] = useState([]);
-    const [ Count, setCount ] = useState(0);
-
+    
     const handleChange = (func) => (e) => {
         func(e.target.value);
     }
 
     const handleSelect = (func) => (e) => {
         func(e);
-    }
-
-    const counter = () => {
-
     }
 
     const send = async () => {
@@ -47,14 +43,6 @@ const Filter = ({type}) => {
             attr: (Attr && Attr !== 'All') ? Attr : null
         }});
         setData(data);
-    }
-
-    const attrColor = (attr) => {
-        const attrList = ['Wire', 'Stand', 'Instrument', 'Speaker', 'Mixer'];
-        const colorList = ['blue', 'green', 'yellow', 'red', 'orange'];
-        for (let i = 0; i < attrList.length; i++)
-            if (attr === attrList[i])
-                return colorList[i];
     }
 
     return (
@@ -155,47 +143,8 @@ const Filter = ({type}) => {
             }
             </div>
             <div className='filterDisplay'>
-            { Data.map((item) => (
-                <>
-                  <div className='resBlock'>
-                    <div className='resImgContainer'>
-                    </div>
-                    <div className='resInfo'>
-                      <div className='title'>
-                        <p className='equipment' style={{ color: "white" }}>{item.Equipment}</p>
-                        <Tag color={attrColor(item.attr)}>{item.attr}</Tag>
-                      </div>
-                    </div>
-                    { type === 'borrow' ?
-                    <>
-                        <Space>
-                          <InputNumber min={0} max={20} defaultValue={0} onChange={counter} />
-                          <Button type='primary' onClick={counter} style={{ background: "rgb(189, 159, 127)" }}>
-                              Borrow
-                          </Button>
-                          <Button type='primary' onClick={counter} style={{ background: "rgb(189, 159, 127)" }}>
-                              Reset
-                          </Button>
-                        </Space>
-                    </>
-                    : type === 'return' ?
-                    <>
-                        <Space>
-                          <InputNumber min={0} max={20} defaultValue={0} onChange={counter} />
-                          <Button type='primary' onClick={counter} style={{ background: "rgb(189, 159, 127)" }}>
-                              Return
-                          </Button>
-                          <Button type='primary' onClick={counter} style={{ background: "rgb(189, 159, 127)" }}>
-                              Reset
-                          </Button>
-                        </Space>
-                    </>
-                    :
-                    <>
-                    </>
-                    }
-                  </div>
-                </>
+            { Data.map((item, id) => (
+                <EquipBlock type={type} item={item} id={id}/>
             ))}
             </div>
         </div>

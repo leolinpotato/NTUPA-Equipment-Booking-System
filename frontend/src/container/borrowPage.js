@@ -1,5 +1,5 @@
 import React from 'react';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import '../css/borrowPage.css';
 import DisplayEquipment from './displayEquipment';
 import { Button, Checkbox, Form, Input, Col, DatePicker } from 'antd';
@@ -8,18 +8,31 @@ const BorrowPage = () => {
     const { RangePicker } = DatePicker;
     const [form] = Form.useForm();
     const [display, setDisplay] = useState(false);
+	const [Activity, setAct] = useState('');
+	const [Start, setStart] = useState({});
+	const [End, setEnd] = useState({});
+	const [borrow, setBor] = useState({});
 
     const onFinish = (values) => {
-        console.log('Success:', values);
+		console.log(values.Activity);
+		setAct(values.Activity);
+		setStart(values.ActivityDate[0]);
+		setEnd(values.ActivityDate[1]);
+		setBor(values.date);
         setDisplay(true);
     };
-    const onFinishFailed = (errorInfo) => {
+
+	useEffect(() => {
+        console.log('Success:', Activity, Start, End, borrow);
+	}, [Start, End, borrow]);
+    
+	const onFinishFailed = (errorInfo) => {
         console.log('Failed:', errorInfo);
     };
-    const onReset = () => {
+    
+	const onReset = () => {
         form.resetFields();
     };
-
 
     return (
       <>

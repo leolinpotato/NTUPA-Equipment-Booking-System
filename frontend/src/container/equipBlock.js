@@ -1,0 +1,66 @@
+import React from 'react';
+import { useState } from 'react';
+import axios from '../api';
+import { Input, Select, Col, Row, Button, Space, Tag, InputNumber } from 'antd';
+import { SearchOutlined } from '@ant-design/icons';
+import '../css/filter.css'
+
+const EquipBlock = ({type, item, id}) => {
+    const [ Count, setCount ] = useState([]);
+
+    const attrColor = (attr) => {
+        const attrList = ['Wire', 'Stand', 'Instrument', 'Speaker', 'Mixer'];
+        const colorList = ['blue', 'green', 'yellow', 'red', 'orange'];
+        for (let i = 0; i < attrList.length; i++)
+            if (attr === attrList[i])
+                return colorList[i];
+    }
+
+    const onReset = () => {
+        setCount(0);
+    }
+
+    return (
+        <>
+          <div className='resBlock'>
+            <div className='resImgContainer'>
+            </div>
+            <div className='resInfo'>
+              <div className='title'>
+                <p className='equipment' style={{ color: "white" }}>{item.Equipment}</p>
+                <Tag color={attrColor(item.attr)}>{item.attr}</Tag>
+              </div>
+            </div>
+            { type === 'borrow' ?
+            <>
+                <Space>
+                  <InputNumber min={0} max={20} defaultValue={0} onChange={setCount} />
+                  <Button type='primary' onClick={setCount}>
+                      Borrow
+                  </Button>
+                  <Button type='primary' onClick={onReset}>
+                      Reset
+                  </Button>
+                </Space>
+            </>
+            : type === 'return' ?
+            <>
+                <Space>
+                  <InputNumber min={0} max={20} defaultValue={0} onChange={setCount} />
+                  <Button type='primary' onClick={setCount}>
+                      Return
+                  </Button>
+                  <Button type='primary' onClick={onReset}>
+                      Reset
+                  </Button>
+                </Space>
+            </>
+            :
+            <>
+            </>
+            }
+          </div>
+        </>
+    )
+}
+export default EquipBlock;
