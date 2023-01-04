@@ -63,7 +63,7 @@ const Equipment = () => {
 			    <img src={state.path} className='equipmentPagePicture'/>
 			</div>
 			<div className='infoContainer'>
-			    <Table columns={columns} dataSource={Data} pagination={{pageSize: 50}} scroll={{y: 240}}/>
+			    <Table columns={columns} dataSource={Data} pagination={{pageSize: 50}} scroll={{y: 180}}/>
 			</div>
 		</>
 	)
