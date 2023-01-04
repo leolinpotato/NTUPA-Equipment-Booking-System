@@ -89,6 +89,14 @@ const Filter = ({type, props}) => {
                             value: 'Mixer',
                             label: 'Mixer',
                         },
+                        {
+                            value: 'Microphone',
+                            label: 'Microphone',
+                        },
+                        {  
+                            value: 'Other',
+                            label: 'Other',
+                        }
                       ]}
                     />
                     <Select
