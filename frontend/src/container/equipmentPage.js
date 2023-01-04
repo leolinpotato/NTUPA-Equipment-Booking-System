@@ -13,8 +13,8 @@ const Equipment = () => {
 	console.log(state)
 
 	const attrColor = (attr) => {
-	    const attrList = ['Wire', 'Stand', 'Instrument', 'Speaker', 'Mixer'];
-	    const colorList = ['blue', 'green', 'yellow', 'red', 'orange'];
+	    const attrList = ['Wire', 'Stand', 'Instrument', 'Speaker', 'Mixer', 'Microphone', 'Other'];
+      	const colorList = ['blue', 'green', 'yellow', 'red', 'orange', 'purple', 'pink'];
 	    for (let i = 0; i < attrList.length; i++)
 	        if (attr === attrList[i])
 	            return colorList[i];

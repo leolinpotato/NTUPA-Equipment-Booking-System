@@ -10,8 +10,8 @@ const EquipBlock = ({type, props, item, equipment, attr, path}) => {
     const [ Count, setCount ] = useState(0);
 
     const attrColor = (attr) => {
-        const attrList = ['Wire', 'Stand', 'Instrument', 'Speaker', 'Mixer'];
-        const colorList = ['blue', 'green', 'yellow', 'red', 'orange'];
+        const attrList = ['Wire', 'Stand', 'Instrument', 'Speaker', 'Mixer', 'Microphone', 'Other'];
+        const colorList = ['blue', 'green', 'yellow', 'red', 'orange', 'purple', 'pink'];
         for (let i = 0; i < attrList.length; i++)
             if (attr === attrList[i])
                 return colorList[i];
