@@ -2,7 +2,7 @@ import React from 'react';
 import { useState, useEffect } from 'react';
 import { useParams, useLocation } from 'react-router-dom'
 import axios from '../api';
-import { Input, Select, Col, Row, Button, Space, Tag, InputNumber, Popconfirm, message } from 'antd';
+import { Input, Select, Col, Row, Button, Space, Tag, InputNumber, Popconfirm, message, Table } from 'antd';
 import { SearchOutlined } from '@ant-design/icons';
 import '../css/filter.css'
 
@@ -31,6 +31,28 @@ const Equipment = () => {
 		search();
 	}, []);
 
+	const columns = [
+	{
+		title: 'Borrower',
+		dataIndex: 'Name',
+		key: 'Name',
+	},
+	{
+		title: 'Activity',
+		dataIndex: 'Activity',
+		key: 'Activity',
+	},
+	{
+		title: 'Num',
+		dataIndex: 'EquipNum',
+		key: 'EquipNum',
+	},
+	{
+		title: 'Borrow Date',
+		dataIndex: 'BorrowDate',
+		key: 'BorrowDate',
+	}];
+
 	return (
 		<>
 			<div className='filterRow'>
@@ -41,16 +63,7 @@ const Equipment = () => {
 			    <Tag color={attrColor(state.attr)}>{state.attr}</Tag>
 			</div>
 			<div className='infoContainer'>
-			{ Data.map((item) => {
-				return (
-					<div className='row'>
-					    {item.Name}
-					    {item.Activity}
-					    {item.EquipNum}
-					    {item.Incharger}
-					</div>
-			    )
-			})}
+			    <Table columns={columns} dataSource={Data}/>
 			</div>
 		</>
 	)

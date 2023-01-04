@@ -21,11 +21,11 @@ const EquipBlock = ({type, props, item, equipment, attr, path}) => {
         if(Count === 0) console.log('num = 0');
         else{
             const { data: { message } } = await axios.post('/reqHandle', {
-                Name: item.Name,
-                Equipment: item.Equipment,
+                Name: props.Name,
+                Equipment: equipment,
                 EquipNum: Count,
-                Activity: item.Activity,
-                attr: item.Attr,
+                Activity: props.Activity,
+                attr: attr,
                 BorrowDate: props.date,
                 StartDate: (props.ActivityDate) ? props.ActivityDate[0] : null,
                 EndDate: (props.ActivityDate) ? props.ActivityDate[1] : null,
