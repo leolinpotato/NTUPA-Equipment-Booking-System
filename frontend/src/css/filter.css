@@ -61,11 +61,12 @@ p {
     width: 300px;
     height: 198px;
     overflow: hidden;
+    display: flex;
     justify-content: center;
+    align-items: center;
 }
 
 .resImg {
-    top: 10px;
     width: 250px;
     border-radius: 8px;
 }
