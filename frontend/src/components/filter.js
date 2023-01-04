@@ -41,7 +41,7 @@ const Filter = ({type}) => {
 
     const attrColor = (attr) => {
         const attrList = ['Wire', 'Stand', 'Instrument', 'Speaker', 'Mixer'];
-        const colorList = ['grey', 'black', 'red', 'blue', 'green'];
+        const colorList = ['blue', 'green', 'yellow', 'red', 'orange'];
         for (let i = 0; i < attrList.length; i++)
             if (attr === attrList[i])
                 return colorList[i];
@@ -151,7 +151,7 @@ const Filter = ({type}) => {
                     </div>
                     <div className='resInfo'>
                       <div className='title'>
-                        <p className='equipment'>{item.Equipment}</p>
+                        <p className='equipment' style={{ color: "white" }}>{item.Equipment}</p>
                         <Tag color={attrColor(item.attr)}>{item.attr}</Tag>
                       </div>
                     </div>
