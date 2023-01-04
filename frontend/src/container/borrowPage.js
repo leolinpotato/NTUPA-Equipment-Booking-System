@@ -8,23 +8,13 @@ const BorrowPage = () => {
     const { RangePicker } = DatePicker;
     const [form] = Form.useForm();
     const [display, setDisplay] = useState(false);
-	const [activity, setAct] = useState('');
-	const [start, setStart] = useState({});
-	const [end, setEnd] = useState({});
-	const [borrow, setBor] = useState({});
+    const [props, setProps] = useState({});
 
     const onFinish = (values) => {
-		console.log(values.Activity);
-		setAct(values.Activity);
-		setStart(values.ActivityDate[0]);
-		setEnd(values.ActivityDate[1]);
-		setBor(values.date);
+		console.log(values);
+		setProps(values);
         setDisplay(true);
     };
-
-	useEffect(() => {
-        console.log('Success:', activity, start, end, borrow);
-	}, [start, end, borrow]);
     
 	const onFinishFailed = (errorInfo) => {
         console.log('Failed:', errorInfo);
@@ -37,7 +27,7 @@ const BorrowPage = () => {
     return (
       <>
         {display ?
-            <DisplayEquipment type='borrow' activity={activity} start={start} end={end} borrow={borrow}/>
+            <DisplayEquipment type='borrow' props={props}/>
             :
             <div className='formContainer'>
             <Form

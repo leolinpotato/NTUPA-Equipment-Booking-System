@@ -5,7 +5,7 @@ import { Input, Select, Col, Row, Button, Space, Tag, InputNumber } from 'antd';
 import { SearchOutlined } from '@ant-design/icons';
 import '../css/filter.css'
 
-const EquipBlock = ({type, item, id, activity, start, end, borrow}) => {
+const EquipBlock = ({type, props, item}) => {
     const [ Count, setCount ] = useState([]);
 
     const attrColor = (attr) => {
@@ -17,14 +17,20 @@ const EquipBlock = ({type, item, id, activity, start, end, borrow}) => {
     }
 
     const send = async () => {
-        if(!(Name && EquipNum && Equipment && Activity)) console.log('not good');
+        if(Count === 0) console.log('num = 0');
         else{
             const { data: { message } } = await axios.post('/reqHandle', {
-                Name,
-                Equipment,
-                EquipNum,
-                Activity
+                Name: item.Name,
+                Equipment: item.Equipment,
+                EquipNum: Count,
+                Activity: item.Activity,
+                attr: item.Attr,
+                BorrowDate: props.date,
+                StartDate: (props.ActivityDate) ? props.ActivityDate[0] : null,
+                EndDate: (props.ActivityDate) ? props.ActivityDate[1] : null,
+                Incharger: props.Incharger
             });
+            console.log('success');
         }
     }
 
