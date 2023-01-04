@@ -1,7 +1,7 @@
 import React from 'react';
 import { useState } from 'react';
 import axios from '../api';
-import { Input, Select, Col, Row, Button, Space, Tag } from 'antd';
+import { Input, Select, Col, Row, Button, Space, Tag, InputNumber } from 'antd';
 import { SearchOutlined } from '@ant-design/icons';
 import '../css/filter.css'
 
@@ -12,6 +12,7 @@ const Filter = ({type}) => {
     const [ Activity, setAct ] = useState('');
     const [ Attr, setAttr] = useState('');
     const [ Data, setData ] = useState([]);
+    const [ Count, setCount ] = useState(0);
 
     const handleChange = (func) => (e) => {
         func(e.target.value);
@@ -19,6 +20,10 @@ const Filter = ({type}) => {
 
     const handleSelect = (func) => (e) => {
         func(e);
+    }
+
+    const counter = () => {
+
     }
 
     const send = async () => {
@@ -161,6 +166,34 @@ const Filter = ({type}) => {
                         <Tag color={attrColor(item.attr)}>{item.attr}</Tag>
                       </div>
                     </div>
+                    { type === 'borrow' ?
+                    <>
+                        <Space>
+                          <InputNumber min={0} max={20} defaultValue={0} onChange={counter} />
+                          <Button type='primary' onClick={counter}>
+                              Borrow
+                          </Button>
+                          <Button type='primary' onClick={counter}>
+                              Reset
+                          </Button>
+                        </Space>
+                    </>
+                    : type === 'return' ?
+                    <>
+                        <Space>
+                          <InputNumber min={0} max={20} defaultValue={0} onChange={counter} />
+                          <Button type='primary' onClick={counter}>
+                              Return
+                          </Button>
+                          <Button type='primary' onClick={counter}>
+                              Reset
+                          </Button>
+                        </Space>
+                    </>
+                    :
+                    <>
+                    </>
+                    }
                   </div>
                 </>
             ))}
