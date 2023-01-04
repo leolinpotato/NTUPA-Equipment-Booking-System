@@ -10,6 +10,7 @@
     "server": "cd backend && yarn server"
   },
   "dependencies": {
+    "@ant-design/icons": "^4.8.0",
     "antd": "^5.1.2"
   }
 }

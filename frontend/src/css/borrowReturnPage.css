@@ -5,21 +5,3 @@
     justify-content: center;
     align-items: center;
 }
-
-#borrowButton {
-    color: white;
-    background: black;
-    
-}
-
-#returnButton {
-    color: white;
-    background: black;
-}
-
-button {
-    width: 30%;
-    height: 50%;
-    border-radius: 10%;
-    border: none;
-}

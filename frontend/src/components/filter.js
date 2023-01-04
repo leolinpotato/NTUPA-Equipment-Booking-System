@@ -122,7 +122,7 @@ const Filter = (type) => {
                 <Input placeholder="Activity" onChange={handleChange(setAct)}></Input>
                 </Col>
                 <Col>
-                <Button type="primary" onClick={send}>   send   </Button>
+                <Button type="primary" onClick={send} style={{ background: "red", borderColor: "yellow" }}>   send   </Button>
                 </Col>
                 <Col> 
                 <Button type="primary" icon={<SearchOutlined />} onClick={search}> Search </Button> 

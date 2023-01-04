@@ -1,7 +1,7 @@
 import React from 'react'
 import { useState } from "react";
 import '../css/sideBar.css';
-import { DownOutlined, SmileOutlined } from '@ant-design/icons';
+import { CaretDownOutlined, SmileOutlined } from '@ant-design/icons';
 import { Dropdown, Space } from 'antd';
 //import Filter from './filter';
 //import { MdTune, MdOutlineKeyboardArrowDown, MdOutlineKeyboardArrowUp } from "react-icons/md";
@@ -29,7 +29,7 @@ const SideBar = () => {
 		    <Dropdown menu={{items,}} className='sideBarRow'>
 		        <a onClick={(e) => e.preventDefault()} >
 		            Borrow/Return
-		            <DownOutlined/>
+		            <CaretDownOutlined/>
 		        </a>
 		      </Dropdown>
 		    {
