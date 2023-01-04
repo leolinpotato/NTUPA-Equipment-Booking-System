@@ -34,6 +34,15 @@ router.get('/debug', async(_, res) => {
 	res.send(REQ + ATTR + "\ndone\n");
 })
 
+router.get('/init', async (_, res) => {
+	const ATTR = await attr.find();
+	const ret = [];
+	for(let i of ATTR){
+		ret.push({equip: i.equip, attr: i.attr, img: attr.img})
+	}
+	res.json(ret);
+})
+
 router.post('/attr', async (req, res) => {
 	const newAttr = new attr(req.body);
 	await newAttr.save();
