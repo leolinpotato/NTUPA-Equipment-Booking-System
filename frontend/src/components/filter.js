@@ -16,10 +16,15 @@ const Filter = ({type, props}) => {
     const [ flag, setFlag ] = useState(false);
     const [ initList, setList ] = useState([]);
 
+    let options = [];
+
     const init = async() => {
         const dt = await axios.get('/init');
         setList(dt.data);
     }
+    initList.map((item, id) => {
+        options[id] = {value: id, label: item.equip};
+    })
     
     useEffect(()=>{
         init();  
@@ -63,6 +68,7 @@ const Filter = ({type, props}) => {
         return <EquipBlock type={type} props={props} item={item} path={item.img}/>
         })
     }
+
 
     return (
         <div className='filterContainer'>
@@ -129,32 +135,7 @@ const Filter = ({type, props}) => {
                         filterSort={(optionA, optionB) =>
                           (optionA?.label ?? '').toLowerCase().localeCompare((optionB?.label ?? '').toLowerCase())
                         }
-                        options={[
-                          {
-                            value: '1',
-                            label: 'Not Identified',
-                          },
-                          {
-                            value: '2',
-                            label: 'Closed',
-                          },
-                          {
-                            value: '3',
-                            label: 'Communicated',
-                          },
-                          {
-                            value: '4',
-                            label: 'Identified',
-                          },
-                          {
-                            value: '5',
-                            label: 'Resolved',
-                          },
-                          {
-                            value: '6',
-                            label: 'Cancelled',
-                          },
-                        ]}
+                        options={options}
                     />
                     { type === 'search' ? 
                     <>

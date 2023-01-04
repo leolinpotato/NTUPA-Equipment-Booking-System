@@ -8,9 +8,12 @@ const ReturnPage = () => {
     const { RangePicker } = DatePicker;
     const [form] = Form.useForm();
     const [display, setDisplay] = useState(false);
+    const [props, setProps] = useState({});
+
 
     const onFinish = (values) => {
         console.log('Success:', values);
+        setProps(values);
         setDisplay(true);
     };
     const onFinishFailed = (errorInfo) => {
@@ -23,7 +26,7 @@ const ReturnPage = () => {
     return (
       <>
         {display ?
-            <DisplayEquipment type='return'/>
+            <DisplayEquipment type='return' props={props}/>
             :
             <div className='formContainer'>
             <Form
