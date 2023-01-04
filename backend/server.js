@@ -4,6 +4,9 @@ import dotenv from 'dotenv-defaults'
 import cors from 'cors'
 import bodyParser from 'body-parser'
 import routes from './routes/index'
+import Request from './models/Request'
+import attr from './models/attr'
+import init from './init'
 
 const app = express();
 app.use(cors());
@@ -22,4 +25,10 @@ app.get('/', (req, res) => {
 
 dotenv.config();
 mongoose.set('strictQuery', true);
-mongoose.connect(process.env.MONGO_URL).then((res)=> console.log('db success'));
+mongoose.connect(process.env.MONGO_URL).then( async(res)=>{
+	await Request.deleteMany({});
+	await attr.deleteMany({});
+	await init();
+	console.log('db success');
+})
+

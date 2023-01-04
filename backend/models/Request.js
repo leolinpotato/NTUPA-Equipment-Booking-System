@@ -11,7 +11,8 @@ const RequestSchema = new Schema({
 	Equipment: String,
 	EquipNum: Number,
 	attr: String,
-	Incharger: String
+	Incharger: String,
+	ID: Number
 })
 
 const Request = mongoose.model('Request', RequestSchema);

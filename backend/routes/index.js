@@ -7,7 +7,7 @@ router.get('/reqHandle', async (req, res) => {
 	const dt = await Request.find(req.query);
 	const ret = []
 	for(let i of dt){
-		ret.push({Name:i.Name, Equipment:i.Equipment, date:i.date, EquipNum:i.EquipNum, Activity:i.Activity, attr:i.attr});
+		ret.push({Name:i.Name, Equipment:i.Equipment, date:i.date, EquipNum:i.EquipNum, Activity:i.Activity, attr:i.attr, ID: i.ID});
 	}
 	res.json(ret);
 })
@@ -16,8 +16,10 @@ router.get('/reqHandle', async (req, res) => {
 
 router.post('/reqHandle', async (req, res) => {
 	const tt = await attr.findOne({equip: req.body.Equipment});
+	const ID = await Request.find().sort({"ID": -1}).limit(1);
 	const newdt = new Request(req.body); //{date, Name, Activity, EquipNum, Equipment, attr: tt.attr});
 	newdt.attr = tt.attr;
+	newdt.ID = 1 + ID[0].ID;
 	await newdt.save();
 	res.json({message: "succeed!"});
 })
@@ -31,7 +33,7 @@ router.delete('/debug', async (req, res) => {
 router.get('/debug', async(_, res) => {
 	const REQ = await Request.find();
 	const ATTR = await attr.find();
-	res.send(REQ + ATTR + "\ndone\n");
+	res.send(REQ + "\n" + ATTR + "\ndone\n");
 })
 
 router.get('/init', async (_, res) => {
