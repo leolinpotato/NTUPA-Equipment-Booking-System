@@ -135,6 +135,7 @@ const Filter = ({type, props}) => {
                         filterSort={(optionA, optionB) =>
                           (optionA?.label ?? '').toLowerCase().localeCompare((optionB?.label ?? '').toLowerCase())
                         }
+                        onChange={handleSelect(setEquip)}
                         options={options}
                     />
                     { type === 'search' ? 

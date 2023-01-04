@@ -16,7 +16,3 @@
     justify-content: center;
     align-items: center;
 }
-
-.infoContainer {
-    height: clac(100% - 5em - 170px);
-}

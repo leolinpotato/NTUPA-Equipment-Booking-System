@@ -4,6 +4,7 @@ import { useParams, useLocation } from 'react-router-dom'
 import axios from '../api';
 import { Input, Select, Col, Row, Button, Space, Tag, InputNumber, Popconfirm, message, Table } from 'antd';
 import { SearchOutlined } from '@ant-design/icons';
+import '../css/equipmentPage.css'
 
 const Equipment = () => {
 	const { id } = useParams();
@@ -62,7 +63,7 @@ const Equipment = () => {
 			    <img src={state.path} className='equipmentPagePicture'/>
 			</div>
 			<div className='infoContainer'>
-			    <Table columns={columns} dataSource={Data} pagination={{pageSize: 50}} scroll={{y: 240}}/>
+			    <Table columns={columns} dataSource={Data} scroll={{y: 180}}/>
 			</div>
 		</>
 	)
