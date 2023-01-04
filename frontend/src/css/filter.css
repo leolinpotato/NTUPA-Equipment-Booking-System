@@ -46,8 +46,8 @@ p {
 .resBlock {
     margin: 2em;
     display: block;
-    width: 350px;
-    height: 300px;
+    width: 300px;
+    height: 270px;
     background: rgb(157, 132, 112);
     border-radius: 10px;
 }
@@ -57,20 +57,20 @@ p {
 }
 
 .resImgContainer {
-    width: 350px;
-    height: 228px;
+    width: 300px;
+    height: 198px;
     overflow: hidden;
     justify-content: center;
 }
 
 .resImg {
-    width: 350px;
+    width: 300px;
 }
 
 .resInfo {
     padding: 0.5em;
     text-align: left;
-    width: 335px;
+    width: 284px;
 }
 
 .resInfo .title {
