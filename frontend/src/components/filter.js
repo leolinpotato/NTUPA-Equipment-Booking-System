@@ -52,7 +52,7 @@ const Filter = ({type}) => {
             <div className='filterRow'>
             { type === 'record' ? 
                 <>
-                    <Input size='large' placeholder="Activity" onChange={handleChange(setAct)}></Input>
+                    <Input size='large' placeholder="Activity" onChange={handleChange(setAct)} style={{ width: "65%" }}></Input>
                     <Button size='large'type="primary" icon={<SearchOutlined />} onClick={search} style={{ background: "rgb(189, 159, 127)" }}> Search </Button> 
                 </>
                 :
