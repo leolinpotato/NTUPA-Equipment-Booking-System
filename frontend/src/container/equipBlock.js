@@ -42,6 +42,7 @@ const EquipBlock = ({type, props, item}) => {
         <>
           <div className='resBlock'>
             <div className='resImgContainer'>
+              <img className='resImg' src={item.img}/>
             </div>
             <div className='resInfo'>
               <div className='title'>
