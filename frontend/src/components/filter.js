@@ -129,6 +129,8 @@ const Filter = ({type}) => {
                     </>
                     :
                     <>
+                        <Input placeholder="Name" onChange={handleChange(setName)} className='filterName'></Input>
+                        <Input placeholder="Activity" onChange={handleChange(setAct)} className='filterActivity'></Input>
                     </>
                     }
                     <Button size='large'type="primary" icon={<SearchOutlined />} onClick={search} style={{ background: "rgb(189, 159, 127)" }}> Search </Button> 
