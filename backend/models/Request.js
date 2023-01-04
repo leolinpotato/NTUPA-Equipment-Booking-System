@@ -10,7 +10,8 @@ const RequestSchema = new Schema({
 	Activity: String,
 	Equipment: String,
 	EquipNum: Number,
-	attr: String
+	attr: String,
+	Incharger: String
 })
 
 const Request = mongoose.model('Request', RequestSchema);

@@ -6,7 +6,7 @@ import { SearchOutlined } from '@ant-design/icons';
 import '../css/filter.css'
 import EquipBlock from '../container/equipBlock';
 
-const Filter = ({type, activity, start, end, borrow}) => {
+const Filter = ({type, props}) => {
     const [ Name, setName ] = useState('');
     const [ Equipment, setEquip ] = useState('');
     const [ EquipNum, setNum ] = useState(0);
@@ -132,7 +132,7 @@ const Filter = ({type, activity, start, end, borrow}) => {
             </div>
             <div className='filterDisplay'>
             { Data.map((item, id) => (
-                <EquipBlock type={type} item={item} id={id} activity={activity} start={start} end={end} borrow={borrow}/>
+                <EquipBlock type={type} props={props} item={item}/>
             ))}
             </div>
         </div>

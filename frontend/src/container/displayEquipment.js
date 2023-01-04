@@ -5,10 +5,10 @@ import { Input, Select } from 'antd';
 import Filter from '../components/filter.js'
 import '../css/displayEquipment.css'
 
-const DisplayEquipment = ({type, activity, start, end, borrow}) => {
+const DisplayEquipment = ({type, props}) => {
     return (
         <div className='displayEquipmentContainer'>
-            <Filter type={type} activity={activity} start={start} end={end} borrow={borrow}/>
+            <Filter type={type} props={props}/>
         </div>
     )
 }
