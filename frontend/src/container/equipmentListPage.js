@@ -10,6 +10,7 @@ const EquipmentListPage = () => {
 	const [ Activity, setAct ] = useState('');
 	const [ Display, setDisplay ] = useState([]);
 	const [ attr, setAttr ] = useState('');
+	const [ img, setImg ] = useState('');
 
 	const handleChange = (st) => (e) => {
 		st(e.target.value);
@@ -43,7 +44,8 @@ const EquipmentListPage = () => {
 		if(Equipment && attr){
 			const { data: { message }} = await axios.post('/attr', {
 				equip: Equipment,
-				attr
+				attr,
+				img
 			})
 			alert('new attr');
 		}
@@ -56,6 +58,7 @@ const EquipmentListPage = () => {
 			<input placeholder="num"   onChange={handleChange(setNum)}></input>
 			<input placeholder="act"   onChange={handleChange(setAct)}></input>
 			<input placeholder="attr"   onChange={handleChange(setAttr)}></input>
+			<input placeholder='img' onChange={handleChange(setImg)}></input>
 			<div>
 				<button onClick={send}>   send   </button> 
 				<button onClick={search}> search </button> 
