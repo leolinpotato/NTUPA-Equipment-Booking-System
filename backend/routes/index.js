@@ -7,7 +7,8 @@ router.get('/reqHandle', async (req, res) => {
 	const dt = await Request.find(req.query);
 	const ret = []
 	for(let i of dt){
-		ret.push({Name:i.Name, Equipment:i.Equipment, date:i.date, EquipNum:i.EquipNum, Activity:i.Activity, attr:i.attr, ID: i.ID});
+		if(i.ID != 0)
+			ret.push({Name:i.Name, Equipment:i.Equipment, date:i.date, EquipNum:i.EquipNum, Activity:i.Activity, attr:i.attr, ID: i.ID});
 	}
 	res.json(ret);
 })
