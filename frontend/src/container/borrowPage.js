@@ -70,7 +70,7 @@ const BorrowPage = () => {
                     <Input />
                   </Form.Item>
 
-                  <Form.Item label="Coordinator" name="Incharger">
+                  <Form.Item label="Incharger" name="Incharger">
                     <Input />
                   </Form.Item>
 
