@@ -58,13 +58,11 @@ const Equipment = () => {
 			    <div className='title'>{id}</div>
 			    <Tag color={attrColor(state.attr)} className='equipmentPageTag'>{state.attr}</Tag>
 			</div>
-			<div className='equipmentPageRow2'>
 			<div className='imgContainer'>
 			    <img src={state.path} className='equipmentPagePicture'/>
 			</div>
 			<div className='infoContainer'>
-			    <Table columns={columns} dataSource={Data}/>
-			</div>
+			    <Table columns={columns} dataSource={Data} pagination={{pageSize: 50}} scroll={{y: 240}}/>
 			</div>
 		</>
 	)
