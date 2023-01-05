@@ -31,7 +31,7 @@ const ActivitiesRecordPage = () => {
         const { data } = await axios.get('/reqHandle', { params: {
             Equipment:(id) ? id : null,
         }});
-        const newData = [];
+        let newData = [];
         const map = new Map();
         for (let item of data) {
             if (!map.has(item.BorrowDate)) {
@@ -39,7 +39,45 @@ const ActivitiesRecordPage = () => {
                 newData.push(item);
             }
         }
+        newData = rearrangeTime(newData);
         setData(newData);
+    }
+
+    const rearrangeTime = (data) => {
+        for (let item of data) {
+            let newTime = parseTime(item.BorrowDate);
+            let timeStr = `${newTime.Y}-${newTime.M}-${newTime.D} ${newTime.h}:${newTime.m}:${newTime.s}`;
+            item.BorrowDate = timeStr;
+            if (item.StartDate) {
+                newTime = parseTime(item.StartDate);
+                timeStr = `${newTime.Y}-${newTime.M}-${newTime.D} ${newTime.h}:${newTime.m}:${newTime.s}`;
+                item.StartDate = timeStr;
+            }
+            if (item.EndDate) {
+                newTime = parseTime(item.EndDate);
+                timeStr = `${newTime.Y}-${newTime.M}-${newTime.D} ${newTime.h}:${newTime.m}:${newTime.s}`;
+                item.EndDate = timeStr;
+            }
+        }
+        return data;
+    }
+
+    const parseTime = (data) => {
+        let Y = '', M = '', D = '', h = '', m = '', s = '';
+        for (let i = 0; i < 4; i++) 
+            Y += data[i];
+        for (let i = 5; i < 7; i++)
+            M += data[i];
+        for (let i = 8; i < 10; i++)
+            D += data[i];
+        for (let i = 11; i < 13; i++) 
+            h += data[i];
+        for (let i = 14; i < 16; i++)
+            m += data[i];
+        for (let i = 17; i < 19; i++)
+            s += data[i];
+        const time = {Y: Y, M: M, D: D, h: h, m: m, s: s};
+        return time;
     }
 
     useEffect(() => {
@@ -76,7 +114,7 @@ const ActivitiesRecordPage = () => {
         key: 'Incharger',
     },
     {
-        title: 'Borrow Date',
+        title: 'Date',
         dataIndex: 'BorrowDate',
         key: 'BorrowDate',
     },

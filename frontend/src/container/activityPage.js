@@ -159,7 +159,7 @@ const Activity = () => {
 		}
 	},
 	{
-		title: 'Borrow Date',
+		title: 'Date',
 		dataIndex: 'BorrowDate',
 		key: 'BorrowDate',
 		sorter: (a, b) => {

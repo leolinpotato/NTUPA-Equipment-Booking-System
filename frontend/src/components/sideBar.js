@@ -3,7 +3,6 @@ import { useState } from "react";
 import '../css/sideBar.css';
 import { CaretDownOutlined, SmileOutlined } from '@ant-design/icons';
 import { Dropdown, Space } from 'antd';
-import { useNavigate } from 'react-router-dom';
 
 const SideBar = () => {
 	const menus = [["Equipment List", "equipmentList"], ["Equipments Record", "equipmentRecord"], ["Activities Record", "activitiesRecord"]];
