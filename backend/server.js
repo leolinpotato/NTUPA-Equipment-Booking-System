@@ -1,4 +1,4 @@
-import express from 'express';
+import express from 'express'
 import mongoose from 'mongoose'
 import dotenv from 'dotenv-defaults'
 import cors from 'cors'
@@ -7,7 +7,7 @@ import routes from './routes/index'
 import Request from './models/Request'
 import attr from './models/attr'
 import init from './init'
-import path from "path";
+import path from "path"
 
 const app = express();
 app.use(cors());
