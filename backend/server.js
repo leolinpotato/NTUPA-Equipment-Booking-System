@@ -7,6 +7,7 @@ import routes from './routes/index'
 import Request from './models/Request'
 import attr from './models/attr'
 import init from './init'
+import path from "path";
 
 const app = express();
 app.use(cors());
