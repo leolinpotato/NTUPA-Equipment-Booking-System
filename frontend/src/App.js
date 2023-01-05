@@ -8,6 +8,7 @@ import EquipmentListPage from './container/equipmentListPage';
 import EquipmentRecordPage from './container/equipmentRecordPage';
 import ActivitiesRecordPage from './container/activitiesRecordPage';
 import EquipmentPage from './container/equipmentPage';
+import ActivityPage from './container/activityPage';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 
 function App() {
@@ -24,6 +25,7 @@ function App() {
               <Route path="/equipmentRecord" element={<EquipmentRecordPage />} />
               <Route path="/activitiesRecord" element={<ActivitiesRecordPage />} />
               <Route path="/equipment/:id" element={<EquipmentPage />} />
+              <Route path="/activity/:id" element={<ActivityPage />} />
           </Routes>
         </div>
     </Router>

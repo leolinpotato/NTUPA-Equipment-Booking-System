@@ -1,6 +1,6 @@
 import React from 'react';
 import { useState, useEffect } from 'react';
-import { useParams, useLocation } from 'react-router-dom'
+import { useParams, useLocation, useNavigate } from 'react-router-dom'
 import axios from '../api';
 import { Input, Select, Col, Row, Button, Space, Tag, InputNumber, Popconfirm, message, Table } from 'antd';
 import { SearchOutlined } from '@ant-design/icons';
@@ -10,7 +10,6 @@ const ActivitiesRecordPage = () => {
     const { id } = useParams();
     const { state } = useLocation();
     const [ Data, setData ] = useState([]);
-    console.log(state)
 
     const attrColor = (attr) => {
         const attrList = ['Wire', 'Stand', 'Instrument', 'Speaker', 'Mixer', 'Microphone', 'Other'];
@@ -46,6 +45,12 @@ const ActivitiesRecordPage = () => {
     useEffect(() => {
         search();
     }, []);
+
+    const navigate = useNavigate(); 
+    const ToActivity = (activity) => {
+        navigate('/activity/' + activity);
+    }
+
     const columns = [
     {
         title: 'State',
@@ -58,6 +63,7 @@ const ActivitiesRecordPage = () => {
         title: 'Activity',
         dataIndex: 'Activity',
         key: 'Activity',
+        render: (text) => <a onClick={() => ToActivity(text)}>{text}</a>,
     },
     {
         title: 'Name',
