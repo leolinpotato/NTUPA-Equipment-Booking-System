@@ -1,4 +1,4 @@
-# Web Programming Final
+# NTUPA Equipment Booking System
 (Group 97) pa組器材登記系統
 ## 組員
 - B10902024 林宸宇
