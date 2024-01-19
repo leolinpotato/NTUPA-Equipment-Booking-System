@@ -1,6 +1,6 @@
 # NTUPA Equipment Booking System
 PA組器材登記系統
-![](https://github.com/leolinpotato/NTUPA-Equipment-Booking-System/blob/main/src/demo_img.png | width=700)
+<img src="https://github.com/leolinpotato/NTUPA-Equipment-Booking-System/blob/main/src/demo_img.png" width="700" />
 ## Demo 影片連結：https://youtu.be/OKNkT5EG5AM
 ## 簡介
 動機：
