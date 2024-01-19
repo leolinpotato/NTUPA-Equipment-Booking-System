@@ -1,8 +1,8 @@
 # NTUPA Equipment Booking System
 
-<div style="text-align: center;">
+<p align="center">
 <img src="https://github.com/leolinpotato/NTUPA-Equipment-Booking-System/blob/main/src/demo_img.png" width="700"/>
-</div>
+</p>
 
 ## Demo 影片連結：https://youtu.be/OKNkT5EG5AM
 ## 簡介
